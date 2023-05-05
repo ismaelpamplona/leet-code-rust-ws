@@ -4,7 +4,7 @@ impl Solution {
         let mut running_sum: Vec<i32> = vec![];
         let mut curr_sum = 0;
         for n in nums {
-            curr_sum = n + curr_sum;
+            curr_sum += n;
             running_sum.push(curr_sum);
         }
         running_sum

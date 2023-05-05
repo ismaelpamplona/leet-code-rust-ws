@@ -118,7 +118,7 @@ fn from_vec_to_tn(vec: &Vec<i32>, n: usize) -> Option<Rc<RefCell<TreeNode>>> {
 }
 ```
 
-## First approach - Recursion
+## First approach - Recursive
 
 My first approach was to use recursion 
 
