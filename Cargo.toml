@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "p2235_add_two_integers",
+    "p2236_root_equals_sum_of_children",
+    "p226_invert_binary_tree",
+    "l0001_smart_pointers",
+]
