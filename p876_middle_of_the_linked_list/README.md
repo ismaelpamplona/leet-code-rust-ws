@@ -27,8 +27,56 @@ impl Solution {
 ```
 
 So, at this point I know:
-1. the parameter type; and
-2. the return type;
+1. the parameter type;
+2. the return type; and 
+3. that LeetCode tests uses a vector as input.
+
+## Auxiliary Functions
+
+To solve this problem, I need to write two auxiliary functions:
+
+### 1. Convert TreeNode to a vector:
+
+```Rust
+pub fn from_linked_list_to_vec(linked_list: Option<Box<ListNode>>) -> Vec<i32> {
+    if let None = linked_list {
+        return vec![];
+    }
+    let mut linked_list_vector: Vec<i32> = vec![];
+
+    if let Some(mut node) = linked_list {
+        let mut condition = true;
+        while condition {
+            linked_list_vector.push(node.val);
+
+            if let Some(next) = node.next {
+                node = next;
+            } else {
+                condition = false;
+            }
+        }
+    }
+
+    linked_list_vector
+}
+```
+
+### 2. Covert a vector to LinkedList:
+#### Finding the math relation of the node positions:
+
+```Rust
+pub fn from_vec_to_linked_list(vec: Vec<i32>, n: i32) -> Option<Box<ListNode>> {
+    let mut linked_list = None;
+
+    if vec.is_empty() {
+        return None;
+    } else if n < vec.len() as i32 {
+        linked_list = Some(Box::new(ListNode::new(vec[n as usize])));
+        linked_list.as_mut().unwrap().next = from_vec_to_linked_list(vec, n + 1);
+    }
+    linked_list
+}
+```
 
 ## First approach - Iterative
 
@@ -45,27 +93,26 @@ let result_3 = 7 / 3; // 2
 ### Solution
 
 ```Rust
- pub fn middle_node(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-     if let None = head {
-         return None;
-     }
+pub fn middle_node(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+  if let None = head {
+      return None;
+  }
 
-     let mut q = vec![];
-     if let Some(mut node) = head {
-         let mut condition = true;
-         while condition {
-             q.push(node.clone());
-             if let Some(next) = node.next {
-                 node = next;
-             } else {
-                 condition = false;
-             }
-         }
-     }
+  let mut q = vec![];
+  if let Some(mut node) = head {
+      let mut condition = true;
+      while condition {
+          q.push(node.clone());
+          if let Some(next) = node.next {
+              node = next;
+          } else {
+              condition = false;
+          }
+      }
+  }
 
-     Some(q[q.len() / 2].clone())
- }
-
+  Some(q[q.len() / 2].clone())
+}
 ```
 
 - n = number of nodes
