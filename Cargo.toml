@@ -1,6 +1,7 @@
 [workspace]
 
 members = [
+    "lrust_playground",
     "p2235_add_two_integers",
     "p2236_root_equals_sum_of_children",
     "p226_invert_binary_tree",
@@ -11,4 +12,5 @@ members = [
     "p876_middle_of_the_linked_list",
     "p383_ransom_note",
     "l0001_smart_pointers",
+    "l0002_fibonacci",
 ]

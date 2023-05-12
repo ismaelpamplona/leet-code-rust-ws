@@ -71,7 +71,7 @@ So, at this point I know:
 
 
 - m = number of characters in magazine
-  k = distinct characters in magazine
+- k = distinct characters in magazine
 - time complexity: O(m)
 - space complexity: 
 $$
