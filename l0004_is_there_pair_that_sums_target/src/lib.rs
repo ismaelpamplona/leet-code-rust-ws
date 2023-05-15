@@ -3,17 +3,16 @@ impl Solution {
     pub fn if_there_pair_that_sums_target(collection: Vec<i32>, target: i32) -> bool {
         let mut left = 0 as usize;
         let mut right = collection.len() - 1;
-        let mut sum = collection[left] + collection[right];
 
-        while sum != target && left < right {
+        while left < right {
+            let mut sum = collection[left] + collection[right];
+            if sum == target {
+                return true;
+            }
             if sum > target {
                 right -= 1;
             } else {
                 left += 1;
-            }
-            sum = collection[left] + collection[right];
-            if sum == target {
-                return true;
             }
         }
         false
