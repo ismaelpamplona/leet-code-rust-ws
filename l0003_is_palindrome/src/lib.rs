@@ -60,4 +60,10 @@ mod tests {
         let result = Solution::is_palindrome(String::from("aaaaa"));
         assert_eq!(result, true);
     }
+
+    #[test]
+    fn case_08() {
+        let result = Solution::is_palindrome(String::from("aabbaa"));
+        assert_eq!(result, true);
+    }
 }
