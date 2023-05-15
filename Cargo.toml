@@ -16,4 +16,5 @@ members = [
     "l0003_is_palindrome",
     "l0004_is_there_pair_that_sums_target",
     "l0005_combine_sorted",
+    "p392_is_subsequence",
 ]
