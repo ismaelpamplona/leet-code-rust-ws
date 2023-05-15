@@ -17,4 +17,5 @@ members = [
     "l0004_is_there_pair_that_sums_target",
     "l0005_combine_sorted",
     "p392_is_subsequence",
+    "p344_reverse_string",
 ]

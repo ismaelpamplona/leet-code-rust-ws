@@ -14,7 +14,7 @@ So, at this point I know:
 1. the parameter type; and
 2. the return type;
 
-## First approach
+## First approach - Two Pointers
 
 - n = number of characters in the `s` string
 - time complexity: O(n)
