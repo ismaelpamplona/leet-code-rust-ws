@@ -13,4 +13,5 @@ members = [
     "p383_ransom_note",
     "l0001_smart_pointers",
     "l0002_fibonacci",
+    "l0003_is_palindrome",
 ]
