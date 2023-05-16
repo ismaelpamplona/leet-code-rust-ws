@@ -15,6 +15,7 @@ impl Solution {
                 right -= 1;
             }
             result[i] = number * number;
+            // result[i] = i32::pow(number, 2);
         }
 
         result

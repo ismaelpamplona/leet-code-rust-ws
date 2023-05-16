@@ -1,7 +1,7 @@
 [workspace]
 
 members = [
-    "lrust_playground",
+    "l0000_rust_playground",
     "p2235_add_two_integers",
     "p2236_root_equals_sum_of_children",
     "p226_invert_binary_tree",
@@ -19,4 +19,5 @@ members = [
     "p392_is_subsequence",
     "p344_reverse_string",
     "p977_squares_of_a_sorted_array",
+    "l0006_sliding_window",
 ]
