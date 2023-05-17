@@ -20,4 +20,5 @@ members = [
     "p344_reverse_string",
     "p977_squares_of_a_sorted_array",
     "l0006_sliding_window",
+    "p713_subarray_product_less_than_k",
 ]
