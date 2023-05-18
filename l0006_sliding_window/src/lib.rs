@@ -75,6 +75,38 @@ impl Solution {
         // time complexity O(n)
         // space complexity O(1)
     }
+
+    pub fn find_largest_sum_and_length_k(nums: &Vec<i32>, k: i32) -> i32 {
+        let (mut curr, mut sum, mut left) = (0, 0, 0);
+
+        for right in 0..nums.len() {
+            curr += nums[right];
+            if right as i32 >= k {
+                curr -= nums[left];
+                left += 1;
+            }
+            sum = cmp::max(sum, curr);
+        }
+
+        sum
+    }
+
+    pub fn find_largest_sum_and_length_k_2(nums: &Vec<i32>, k: usize) -> i32 {
+        let (mut curr, mut sum) = (0, 0);
+
+        for i in 0..k {
+            curr += nums[i];
+        }
+
+        sum = curr;
+
+        for right in k..nums.len() {
+            curr += nums[right] - nums[right - k];
+            sum = cmp::max(sum, curr);
+        }
+
+        sum
+    }
 }
 
 #[cfg(test)]
@@ -150,5 +182,19 @@ mod tests {
         let bin: &str = "000001";
         let result = Solution::find_length_1_seq(bin);
         assert_eq!(result, 2);
+    }
+
+    #[test]
+    fn case_11() {
+        let vec = vec![3, -1, 4, 12, -8, 5, 6];
+        let result = Solution::find_largest_sum_and_length_k(&vec, 4);
+        assert_eq!(result, 18);
+    }
+
+    #[test]
+    fn case_12() {
+        let vec = vec![3, -1, 4, 12, -8, 5, 6];
+        let result = Solution::find_largest_sum_and_length_k_2(&vec, 4);
+        assert_eq!(result, 18);
     }
 }
