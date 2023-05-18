@@ -21,4 +21,5 @@ members = [
     "p977_squares_of_a_sorted_array",
     "l0006_sliding_window",
     "p713_subarray_product_less_than_k",
+    "p643_maximum_average_subarray_i",
 ]

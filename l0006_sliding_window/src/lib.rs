@@ -89,6 +89,9 @@ impl Solution {
         }
 
         sum
+
+        // time complexity O(n)
+        // space complexity O(1)
     }
 
     pub fn find_largest_sum_and_length_k_2(nums: &Vec<i32>, k: usize) -> i32 {
@@ -106,6 +109,9 @@ impl Solution {
         }
 
         sum
+
+        // time complexity O(n)
+        // space complexity O(1)
     }
 }
 
