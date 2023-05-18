@@ -16,8 +16,12 @@ So, at this point I know:
 
 ## First approach
 
-```Rust
-```
+- n = number of elements
+- time complexity: O(n)
+- space complexity: O(1)
+
+
+## Second approach
 
 - n = number of elements
 - time complexity: O(n)
