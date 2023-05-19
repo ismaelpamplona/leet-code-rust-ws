@@ -1,7 +1,7 @@
 struct Solution;
 impl Solution {
     pub fn find_max_average(nums: Vec<i32>, k: i32) -> f64 {
-        let (mut sum, mut avg, mut left) = (0, 0.0, 0);
+        let (mut sum, mut avg) = (0, 0.0);
 
         // build very first sliding window
         for i in 0..k {
@@ -12,7 +12,6 @@ impl Solution {
 
         for right in k..nums.len() as i32 {
             sum += nums[right as usize] - nums[(right - k) as usize];
-            left += 1;
             let curr = sum as f64 / k as f64;
             avg = avg.max(curr);
         }

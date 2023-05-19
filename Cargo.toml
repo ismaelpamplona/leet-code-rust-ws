@@ -22,4 +22,6 @@ members = [
     "l0006_sliding_window",
     "p713_subarray_product_less_than_k",
     "p643_maximum_average_subarray_i",
+    "p1004_max_consecutive_ones_iii",
+    "l0006_prefix_sum",
 ]
