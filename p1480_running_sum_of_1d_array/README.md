@@ -28,7 +28,7 @@ So, at this point I know:
      running_sum
  }
 ```
-
+Since we don't use any additional space to find the running sum. Note that we do not take into consideration the space occupied by the output array.
 
 - n = number of elements
 - time complexity: O(n)

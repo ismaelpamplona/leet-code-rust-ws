@@ -25,4 +25,5 @@ members = [
     "p1004_max_consecutive_ones_iii",
     "l0006_prefix_sum",
     "p2270_number_of_ways_to_split_array",
+    "p1413_minimum_value_to_get_positive_step_by_step_sum",
 ]
