@@ -28,4 +28,5 @@ members = [
     "p1413_minimum_value_to_get_positive_step_by_step_sum",
     "p557_reverse_words_in_a_string_iii",
     "p917_reverse_only_letters",
+    "p283_move_zeroes",
 ]
