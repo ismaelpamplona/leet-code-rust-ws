@@ -30,4 +30,5 @@ members = [
     "p917_reverse_only_letters",
     "p283_move_zeroes",
     "p2000_reverse_prefix_of_word",
+    "p209_minimum_size_subarray_sum",
 ]
