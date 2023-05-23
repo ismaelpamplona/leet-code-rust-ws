@@ -29,4 +29,5 @@ members = [
     "p557_reverse_words_in_a_string_iii",
     "p917_reverse_only_letters",
     "p283_move_zeroes",
+    "p2000_reverse_prefix_of_word",
 ]
