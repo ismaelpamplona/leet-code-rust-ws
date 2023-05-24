@@ -30,20 +30,20 @@ mod tests {
     fn case_01() {
         let nums = vec![2, 3, 1, 2, 4, 3];
         let result = Solution::min_sub_array_len(7, nums);
-        // assert_eq!(result, 2);
+        assert_eq!(result, 2);
     }
 
     #[test]
     fn case_02() {
         let nums = vec![1, 4, 4];
         let result = Solution::min_sub_array_len(4, nums);
-        // assert_eq!(result, 1);
+        assert_eq!(result, 1);
     }
 
     #[test]
     fn case_03() {
         let nums = vec![1, 1, 1, 1, 1, 1, 1, 1];
         let result = Solution::min_sub_array_len(11, nums);
-        // assert_eq!(result, 0);
+        assert_eq!(result, 0);
     }
 }
