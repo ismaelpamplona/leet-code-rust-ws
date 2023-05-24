@@ -33,4 +33,6 @@ members = [
     "p209_minimum_size_subarray_sum",
     "p1456_maximum_number_of_vowels_in_a_substring_of_given_length",
     "p1208_get_equal_substrings_within_budget",
+    "p1732_find_the_highest_altitude",
+    "p724_find_pivot_index",
 ]
