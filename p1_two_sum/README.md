@@ -18,4 +18,4 @@ So, at this point I know:
 
 - n = number of elements
 - time complexity: O(n)
-- space complexity: O(1)
+- space complexity: O(n)
