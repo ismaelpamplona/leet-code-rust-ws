@@ -22,7 +22,23 @@ impl Solution {
             }
         }
 
-        vec![-1, -1]
+        vec![]
+    }
+
+    pub fn two_sum_2(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut map: HashMap<i32, i32> = HashMap::new();
+
+        for i in 0..nums.len() {
+            let diff = target - nums[i];
+
+            if let Some(value) = map.get(&diff) {
+                return vec![*value, i as i32];
+            }
+
+            map.insert(nums[i], i as i32);
+        }
+
+        vec![]
     }
 }
 
@@ -33,21 +49,27 @@ mod tests {
     #[test]
     fn case_01() {
         let s = vec![2, 7, 11, 15];
-        let result = Solution::two_sum(s, 9);
+        let result = Solution::two_sum(s.clone(), 9);
+        let result2 = Solution::two_sum_2(s, 9);
         assert_eq!(result, vec![0, 1]);
+        assert_eq!(result2, vec![0, 1]);
     }
 
     #[test]
     fn case_02() {
         let s = vec![3, 2, 4];
-        let result = Solution::two_sum(s, 6);
+        let result = Solution::two_sum(s.clone(), 6);
+        let result2 = Solution::two_sum(s, 6);
         assert_eq!(result, vec![1, 2]);
+        assert_eq!(result2, vec![1, 2]);
     }
 
     #[test]
     fn case_03() {
         let s = vec![3, 3];
-        let result = Solution::two_sum(s, 6);
+        let result = Solution::two_sum(s.clone(), 6);
+        let result2 = Solution::two_sum(s, 6);
         assert_eq!(result, vec![0, 1]);
+        assert_eq!(result2, vec![0, 1]);
     }
 }
