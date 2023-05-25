@@ -39,4 +39,5 @@ members = [
     "p303_range_sum_query_immutable",
     "l0007_hashing",
     "p1_two_sum",
+    "p2351_first_letter_to_appear_twice",
 ]
