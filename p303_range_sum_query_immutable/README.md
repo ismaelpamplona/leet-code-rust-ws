@@ -51,13 +51,13 @@ fn new(nums: Vec<i32>) -> Self {
 - space complexity: O(n)
 
 ```Rust
-    fn sum_range(&self, left: i32, right: i32) -> i32 {
-        if left == 0 {
-            return self.prefix_sum[right as usize];
-        } else {
-            return self.prefix_sum[right as usize] - self.prefix_sum[left as usize - 1];
-        }
+fn sum_range(&self, left: i32, right: i32) -> i32 {
+    if left == 0 {
+        return self.prefix_sum[right as usize];
+    } else {
+        return self.prefix_sum[right as usize] - self.prefix_sum[left as usize - 1];
     }
+}
 ```
 
 - n = number of elements

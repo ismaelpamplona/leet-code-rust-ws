@@ -36,4 +36,7 @@ members = [
     "p1732_find_the_highest_altitude",
     "p724_find_pivot_index",
     "p303_range_sum_query_immutable",
+    "p303_range_sum_query_immutable",
+    "l0007_hashing",
+    "p1_two_sum",
 ]
