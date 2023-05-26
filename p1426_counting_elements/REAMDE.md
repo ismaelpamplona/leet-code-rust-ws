@@ -14,9 +14,9 @@ So, at this point I know:
 1. the parameter type; and
 2. the return type;
 
-## First approach - 
+## First approach - hashing
 
 
 - n = number of elements
 - time complexity: O(n)
-- space complexity: O(1)
+- space complexity: O(n)
