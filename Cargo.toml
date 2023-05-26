@@ -40,4 +40,6 @@ members = [
     "l0007_hashing",
     "p1_two_sum",
     "p2351_first_letter_to_appear_twice",
+    "p1832_check_if_the_sentence_is_pangram",
+    "p268_missing_number",
 ]
