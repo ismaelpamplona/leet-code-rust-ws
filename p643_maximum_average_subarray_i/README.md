@@ -1,5 +1,5 @@
 # p643_maximum_average_subarray_i
-[https://leetcode.com/problems/maximum-average-subarray-i/description/](https://leetcode.com/problems/maximum-average-subarray-i/description/)
+[https://leetcode.com/problems/maximum-average-subarray-i/](https://leetcode.com/problems/maximum-average-subarray-i/)
 
 ## Initial provided code
 ```Rust

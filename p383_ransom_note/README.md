@@ -1,5 +1,5 @@
 # p383_ransom_note
-[https://leetcode.com/problems/ransom-note/description/](https://leetcode.com/problems/ransom-note/description/)
+[https://leetcode.com/problems/ransom-note/](https://leetcode.com/problems/ransom-note/)
 
 ## Initial provided code
 ```Rust

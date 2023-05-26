@@ -1,5 +1,5 @@
 # p344_reverse_string
-[https://leetcode.com/problems/reverse-string/description/](https://leetcode.com/problems/reverse-string/description/)
+[https://leetcode.com/problems/reverse-string/](https://leetcode.com/problems/reverse-string/)
 
 ## Initial provided code
 ```Rust

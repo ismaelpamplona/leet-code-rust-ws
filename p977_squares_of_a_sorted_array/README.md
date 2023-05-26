@@ -1,5 +1,5 @@
 # p977_squares_of_a_sorted_array
-[https://leetcode.com/problems/squares-of-a-sorted-array/description/](https://leetcode.com/problems/squares-of-a-sorted-array/description/)
+[https://leetcode.com/problems/squares-of-a-sorted-array/](https://leetcode.com/problems/squares-of-a-sorted-array/)
 
 ## Initial provided code
 ```Rust

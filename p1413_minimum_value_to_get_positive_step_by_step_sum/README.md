@@ -1,5 +1,5 @@
 # p1413_minimum_value_to_get_positive_step_by_step_sum
-[https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/description/](https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/description/)
+[https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/](https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/)
 
 ## Initial provided code
 

@@ -1,5 +1,5 @@
 # p2270_number_of_ways_to_split_array
-[https://leetcode.com/problems/number-of-ways-to-split-array/description/](https://leetcode.com/problems/number-of-ways-to-split-array/description/)
+[https://leetcode.com/problems/number-of-ways-to-split-array/](https://leetcode.com/problems/number-of-ways-to-split-array/)
 
 ## Initial provided code
 ```Rust

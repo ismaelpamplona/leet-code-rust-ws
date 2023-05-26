@@ -1,5 +1,5 @@
 # p713_subarray_product_less_than_k
-[https://leetcode.com/problems/subarray-product-less-than-k/description/](https://leetcode.com/problems/subarray-product-less-than-k/description/)
+[https://leetcode.com/problems/subarray-product-less-than-k/](https://leetcode.com/problems/subarray-product-less-than-k/)
 
 ## Initial provided code
 ```Rust

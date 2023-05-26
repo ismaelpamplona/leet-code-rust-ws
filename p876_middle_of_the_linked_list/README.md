@@ -1,5 +1,5 @@
 # p876_middle_of_the_linked_list
-[https://leetcode.com/problems/middle-of-the-linked-list/description/](https://leetcode.com/problems/middle-of-the-linked-list/description/)
+[https://leetcode.com/problems/middle-of-the-linked-list/](https://leetcode.com/problems/middle-of-the-linked-list/)
 
 ## Initial provided code
 ```Rust

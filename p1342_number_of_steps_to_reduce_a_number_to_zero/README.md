@@ -1,5 +1,5 @@
 # p1342_number_of_steps_to_reduce_a_number_to_zero
-[https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/)
+[https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/)
 
 ## Initial provided code
 ```Rust
