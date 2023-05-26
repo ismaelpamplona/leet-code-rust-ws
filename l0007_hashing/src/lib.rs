@@ -75,6 +75,9 @@ impl Solution {
             max = max.max(right - left + 1);
         }
         max as i32
+
+        // time complexity: O(n)
+        // space complexity: O(k)
     }
 }
 
