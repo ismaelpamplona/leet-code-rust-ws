@@ -46,30 +46,74 @@ impl Solution {
         // time complexity: O(n)
         // space complexity: O(n)
     }
+
+    // Example 1: You are given a string s and an integer k.
+    // Find the length of the longest substring that contains
+    // at most k distinct characters. For example, given s = "eceba"
+    // and k = 2, return 3. The longest substring with at most 2
+    // distinct characters is "ece".
+    // https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/705/hashing/4512/
+    pub fn find_longest_substring(s: String, k: i32) -> i32 {
+        let mut map: HashMap<char, i32> = HashMap::new();
+        let mut left = 0;
+        let mut max = 0;
+        let sv: Vec<char> = s.chars().collect();
+
+        for right in 0..sv.len() {
+            let entry = map.entry(sv[right]).or_insert(0);
+            *entry += 1;
+
+            while map.len() as i32 > k {
+                let entry = map.entry(sv[left]).or_insert(0);
+                *entry -= 1;
+                if *entry == 0 {
+                    map.remove(&sv[left]);
+                }
+                left += 1;
+            }
+
+            max = max.max(right - left + 1);
+        }
+        max as i32
+    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    // #[test]
+    // fn case_01() {
+    //     let s = String::from("abc");
+    //     let result = Solution::letters_of_the_english_alphabet(s);
+    //     assert_eq!(result, 14);
+    // }
+
+    // #[test]
+    // fn case_02() {
+    //     let s = String::from("AAA");
+    //     let result = Solution::letters_of_the_english_alphabet(s);
+    //     assert_eq!(result, 6);
+    // }
+
+    // #[test]
+    // fn case_03() {
+    //     let nums = vec![1, 3, -2, -1, 5, 7];
+    //     let result = Solution::find_x(nums);
+    //     let expected = vec![1, 3, 5, 7];
+    //     assert_eq!(result, expected);
+    // }
+
     #[test]
-    fn case_01() {
-        let s = String::from("abc");
-        let result = Solution::letters_of_the_english_alphabet(s);
-        assert_eq!(result, 14);
+    fn case_04() {
+        let s = String::from("eceba");
+        let result = Solution::find_longest_substring(s, 2);
+        assert_eq!(result, 3);
     }
 
     #[test]
-    fn case_02() {
-        let s = String::from("AAA");
-        let result = Solution::letters_of_the_english_alphabet(s);
+    fn case_05() {
+        let s = String::from("abcddeedd");
+        let result = Solution::find_longest_substring(s, 2);
         assert_eq!(result, 6);
-    }
-
-    #[test]
-    fn case_03() {
-        let nums = vec![1, 3, -2, -1, 5, 7];
-        let result = Solution::find_x(nums);
-        let expected = vec![1, 3, 5, 7];
-        assert_eq!(result, expected);
     }
 }
