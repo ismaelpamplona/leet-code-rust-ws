@@ -14,7 +14,7 @@ So, at this point I know:
 1. the parameter type; and
 2. the return type;
 
-## First approach - sliding window
+## First approach - Hashing
 
 - n = number of elements
 - time complexity: O(n)
