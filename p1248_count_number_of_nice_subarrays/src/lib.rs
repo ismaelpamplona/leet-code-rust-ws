@@ -3,10 +3,7 @@ use std::collections::HashMap;
 struct Solution;
 impl Solution {
     pub fn number_of_subarrays_sw(nums: Vec<i32>, k: i32) -> i32 {
-        let mut left = 0;
-        let mut ans = 0;
-        let mut sum_odds = 0;
-        let mut count = 0;
+        let (mut left, mut ans, mut sum_odds, mut count) = (0, 0, 0, 0);
 
         for right in 0..nums.len() {
             if nums[right] % 2 != 0 {
@@ -31,8 +28,8 @@ impl Solution {
     pub fn number_of_subarrays_count(nums: Vec<i32>, k: i32) -> i32 {
         let mut map: HashMap<i32, i32> = HashMap::new();
         map.insert(0, 1);
-        let mut ans = 0;
-        let mut cur_prefix_count = 0;
+        let (mut ans, mut cur_prefix_count) = (0, 0);
+
         for i in 0..nums.len() {
             cur_prefix_count += nums[i] % 2;
             if let Some(value) = map.get(&(cur_prefix_count - k)) {
