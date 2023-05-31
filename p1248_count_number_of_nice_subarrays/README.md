@@ -53,7 +53,7 @@ pub fn number_of_subarrays(nums: Vec<i32>, k: i32) -> i32 {
 - space complexity: O(1)
 
 
-## First approach - prefix + hashing 
+## Second approach - prefix + hashing 
 
 1. Track the number of odd numbers we have seen in the current prefix. 
 2. If `curr - k` exists, it means that there was a prefix earlier with `curr - k` odd numbers. The current prefix has curr odd numbers.
