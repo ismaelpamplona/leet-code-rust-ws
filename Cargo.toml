@@ -48,4 +48,5 @@ members = [
     "p560_subarray_sum_equals_k",
     "p1248_count_number_of_nice_subarrays",
     "p2225_find_players_with_zero_or_one_losses",
+    "p1133_largest_unique_number",
 ]
