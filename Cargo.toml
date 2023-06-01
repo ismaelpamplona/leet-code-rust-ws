@@ -50,4 +50,5 @@ members = [
     "p2225_find_players_with_zero_or_one_losses",
     "p1133_largest_unique_number",
     "p1189_maximum_number_of_balloons",
+    "p49_group_anagrams",
 ]
