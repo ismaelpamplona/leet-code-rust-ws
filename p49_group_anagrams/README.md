@@ -37,4 +37,4 @@ pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
 - n = length of `strs`
 - k = max length of a String in `strs`
 - time complexity: $O(n*k*logk)$
-- space complexity: O(n*k)
+- space complexity: $O(n*k)$

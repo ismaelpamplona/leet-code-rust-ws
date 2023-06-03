@@ -51,4 +51,5 @@ members = [
     "p1133_largest_unique_number",
     "p1189_maximum_number_of_balloons",
     "p49_group_anagrams",
+    "p2260_minimum_consecutive_cards_to_pick_up",
 ]
