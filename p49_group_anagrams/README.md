@@ -18,23 +18,18 @@ So, at this point I know:
 
 ```Rust
 pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
-  let mut map: HashMap<String, Vec<String>> = HashMap::new();
-  let mut result: Vec<Vec<String>> = vec![];
+   let mut map: HashMap<String, Vec<String>> = HashMap::new();
 
-  for i in 0..strs.len() {
+   for i in 0..strs.len() {
       let mut sv: Vec<char> = strs[i].chars().collect();
       sv.sort();
       let ordered_str: String = sv.into_iter().collect();
 
       let entry = map.entry(ordered_str).or_insert(vec![]);
       entry.push(strs[i].clone());
-  }
+   }
 
-  for (k, v) in map {
-      result.push(v);
-  }
-
-  result        
+   return map.values().cloned().collect();     
 }
 ```
 
