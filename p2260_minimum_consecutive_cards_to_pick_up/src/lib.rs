@@ -4,8 +4,7 @@ struct Solution;
 impl Solution {
     pub fn minimum_card_pickup(cards: Vec<i32>) -> i32 {
         let mut map: HashMap<i32, Vec<i32>> = HashMap::new();
-        let mut ans = cards.len() as i32;
-        let mut possible = false;
+        let mut ans = f32::INFINITY as i32;
         for i in 0..cards.len() {
             let entry = map.entry(cards[i]).or_insert(vec![]);
             entry.push(i as i32);
@@ -13,13 +12,13 @@ impl Solution {
             if entry.len() == 2 {
                 ans = ans.min(entry[1] - entry[0] + 1);
                 entry.remove(0);
-                possible = true;
             }
         }
-        if possible {
-            return ans;
+
+        if ans == f32::INFINITY as i32 {
+            return -1;
         }
-        -1
+        ans
     }
 }
 
