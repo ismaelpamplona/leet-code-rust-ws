@@ -1,4 +1,4 @@
-# p2270-number-of-ways-to-split-array
+# p2342_max_sum_of_a_pair_with_equal_sum_of_digits
 [https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/](https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/)
 
 ## Initial provided code
