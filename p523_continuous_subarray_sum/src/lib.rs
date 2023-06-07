@@ -2,18 +2,18 @@ use std::collections::HashMap;
 struct Solution;
 impl Solution {
     pub fn check_subarray_sum(nums: Vec<i32>, k: i32) -> bool {
-        let mut hash_map: HashMap<i32, i32> = HashMap::new();
-        hash_map.insert(0, 0);
+        let mut map: HashMap<i32, i32> = HashMap::new();
+        map.insert(0, 0);
         let mut sum = 0;
 
         for right_index in 0..nums.len() {
             sum += nums[right_index];
-            if let Some(&left_index) = hash_map.get(&(sum % k)) {
+            if let Some(&left_index) = map.get(&(sum % k)) {
                 if left_index < right_index as i32 {
                     return true;
                 }
             } else {
-                hash_map.insert(sum % k, right_index as i32 + 1);
+                map.insert(sum % k, right_index as i32 + 1);
             }
         }
 

@@ -28,6 +28,8 @@ So, at this point I know:
 
 ## First approach - Hashing
 
-- n = number of elements
-- time complexity: O(n)
-- space complexity: O(1)
+- n = number of elements in `nums`
+- time complexity: $O(n)$
+- space complexity: O(min{n, k})
+
+The size of a hash map does not exceed $n+1$. It also does not exceed $k$ because there are only $k$ possible remainders.
