@@ -12,6 +12,6 @@ impl Solution {
 
 ## First approach - Hashing
 
-- n = grid has a size $n^2$,
+- n = grid has a size $n^2$
 - time complexity: $O(n^2)$
 - space complexity: $O(n^2)$
