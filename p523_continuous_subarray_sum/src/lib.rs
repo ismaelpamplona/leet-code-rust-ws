@@ -8,12 +8,12 @@ impl Solution {
 
         for right_index in 0..nums.len() {
             sum += nums[right_index];
-            if let Some(&left_index) = map.get(&(sum % k)) {
+            if let Some(&left_index) = map.get(&((sum % k + k) % k)) {
                 if left_index < right_index as i32 {
                     return true;
                 }
             } else {
-                map.insert(sum % k, right_index as i32 + 1);
+                map.insert((sum % k + k) % k, right_index as i32 + 1);
             }
         }
 
