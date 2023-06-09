@@ -60,4 +60,5 @@ members = [
     "p974_subarray_sums_divisible_by_k",
     "p217_contains_duplicate",
     "p1436_destination_city",
+    "p1496_path_crossing",
 ]
