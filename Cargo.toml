@@ -61,4 +61,6 @@ members = [
     "p217_contains_duplicate",
     "p1436_destination_city",
     "p1496_path_crossing",
+    "p1748_sum_of_unique_elements",
+    "p1394_find_lucky_integer_in_an_array",
 ]
