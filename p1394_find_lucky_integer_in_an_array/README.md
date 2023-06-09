@@ -15,7 +15,7 @@ So, at this point I know:
 2. the return type; and 
 3. that LeetCode tests uses a vector as input.
 
-## First approach - HashSet
+## First approach - HashMap
 
 - n = number of nodes
 - time complexity: $O(2n) = O(n)$
