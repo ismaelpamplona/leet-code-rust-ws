@@ -10,12 +10,12 @@ impl Solution {
 
         for i in 0..nums.len() {
             sum += nums[i];
-            let k = (sum % k + k) % k;
-            if let Some(value) = map.get(&k) {
+            let key = (sum % k + k) % k;
+            if let Some(value) = map.get(&key) {
                 ans += value;
-                map.insert(k, value + 1);
+                map.insert(key, value + 1);
             } else {
-                map.insert(k, 1);
+                map.insert(key, 1);
             }
         }
 

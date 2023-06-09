@@ -58,4 +58,5 @@ members = [
     "p3_longest_substring_without_repeating_characters",
     "p523_continuous_subarray_sum",
     "p974_subarray_sums_divisible_by_k",
+    "p217_contains_duplicate",
 ]
