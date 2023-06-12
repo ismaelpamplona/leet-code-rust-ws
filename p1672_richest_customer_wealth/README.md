@@ -36,5 +36,5 @@ So, at this point I know:
 
 - i = number of lines
 - j = number of columns
-- time complexity: O(i*j)
-- space complexity: O(1)
+- time complexity: $O(i*j)$
+- space complexity: $O(1)$
