@@ -66,4 +66,5 @@ members = [
     "p1207_unique_number_of_occurrences",
     "p451_sort_characters_by_frequency",
     "p1512_number_of_good_pairs",
+    "p930_binary_subarrays_with_sum",
 ]
