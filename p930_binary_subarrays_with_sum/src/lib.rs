@@ -10,9 +10,9 @@ impl Solution {
             prefix[i + 1] = prefix[i] + nums[i];
         }
 
-        for i in &prefix {
-            ans += map.get(&(i)).unwrap_or(&0);
-            *map.entry(*i + goal).or_insert(0) += 1;
+        for s in &prefix {
+            ans += map.get(&(s)).unwrap_or(&0);
+            *map.entry(*s + goal).or_insert(0) += 1;
         }
 
         ans
