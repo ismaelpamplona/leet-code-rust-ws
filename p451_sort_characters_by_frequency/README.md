@@ -18,5 +18,10 @@ So, at this point I know:
 ## First approach - HashMap + HashSet
 
 - n = number of nodes
-- time complexity: $O(n + k \log k)$
+- time complexity: $O(n \log n)$ OR $O(n + k \log k)$
+    - Bulding the hashmap: $O(n)$
+    - Bulding the vector of tuples from hashmap: $O(k)$
+    - Sorting the vector of tuples: $O(k \log k)$
+    - Building the String result: $O(n)$
+    - Result: $O(n) + O(k) + $O(k \log k) + O(n)$ 
 - space complexity: $O(n)$
