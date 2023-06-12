@@ -15,3 +15,10 @@ impl Solution {
 - n = number of elements
 - time complexity: $O(n)$
 - space complexity: $O(n)$
+
+## Second approach - Two pointers with boolean array
+
+- n = number of elements
+- k = range of non-negative numbers
+- time complexity: $O(n)$
+- space complexity: $O(k)$
