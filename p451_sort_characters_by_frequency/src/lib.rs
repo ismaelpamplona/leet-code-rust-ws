@@ -29,9 +29,11 @@ impl Solution {
             *freqs_map.entry(char).or_insert(0) += 1;
         }
 
+        // Make a vector of the tuples (char, freq), sorted by frequency
         let mut freqs: Vec<(char, i32)> = freqs_map.into_iter().collect();
         freqs.sort_by_key(|&(_, freq)| -freq);
 
+        // Convert the freqs into a String
         freqs
             .iter()
             .flat_map(|&(c, freq)| repeat(c).take(freq as usize))

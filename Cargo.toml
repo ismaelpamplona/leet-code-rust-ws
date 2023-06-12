@@ -65,4 +65,5 @@ members = [
     "p1394_find_lucky_integer_in_an_array",
     "p1207_unique_number_of_occurrences",
     "p451_sort_characters_by_frequency",
+    "p1512_number_of_good_pairs",
 ]
