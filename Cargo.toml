@@ -70,4 +70,6 @@ members = [
     "p1695_maximum_erasure_value",
     "p567_permutation_in_string",
     "p205_isomorphic_strings",
+    "p290_word_pattern",
+    "p791_custom_sort_string",
 ]
