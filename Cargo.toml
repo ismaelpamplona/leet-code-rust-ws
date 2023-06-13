@@ -69,4 +69,5 @@ members = [
     "p930_binary_subarrays_with_sum",
     "p1695_maximum_erasure_value",
     "p567_permutation_in_string",
+    "p205_isomorphic_strings",
 ]
