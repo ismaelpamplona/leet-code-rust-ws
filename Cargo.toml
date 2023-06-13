@@ -68,4 +68,5 @@ members = [
     "p1512_number_of_good_pairs",
     "p930_binary_subarrays_with_sum",
     "p1695_maximum_erasure_value",
+    "p567_permutation_in_string",
 ]
