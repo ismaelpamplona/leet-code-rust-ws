@@ -72,4 +72,5 @@ members = [
     "p205_isomorphic_strings",
     "p290_word_pattern",
     "p791_custom_sort_string",
+    "p1657_determine_if_two_strings_are_close",
 ]
