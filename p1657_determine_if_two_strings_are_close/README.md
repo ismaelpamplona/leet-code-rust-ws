@@ -14,3 +14,13 @@ impl Solution {
 - $n$: length of word
 - time complexity: $O(n)$
 - space complexity: $26 O(1) = O(1)$
+
+## Second approach - vector map
+- $n$: length of word
+- time complexity: $O(n)$
+- space complexity: $26 O(1) = O(1)$
+
+## Third approach - bitwise
+- $n$: length of word
+- time complexity: $O(n)$
+- space complexity: $26 O(1) = O(1)$
