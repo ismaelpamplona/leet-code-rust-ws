@@ -34,3 +34,8 @@ pub struct Node<T> {
     prev: Option<Box<Node<T>>>,
 }
 ```
+
+### Linked lists with sentinel nodes
+
+- We call the start of a linked list the head and the end of a linked list the tail.
+- A linked list with sentinel nodes is a variation of a linked list that uses additional special nodes, called sentinel nodes, at both poles of the list. These sentinel nodes act as placeholders and provide easier and more efficient list manipulation.
