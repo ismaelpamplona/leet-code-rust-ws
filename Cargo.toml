@@ -75,4 +75,5 @@ members = [
     "p1657_determine_if_two_strings_are_close",
     "l0008_linked_list",
     "p141_linked_list_cycle",
+    "l0009_linked_list_get_k_node_from_the_end",
 ]
