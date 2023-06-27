@@ -56,30 +56,30 @@ mod tests {
 
     #[test]
     fn case_01() {
-        let head_1 = from_vec_to_linked_list(vec![1, 2, 3, 4, 5], 0);
-        let head_2 = from_vec_to_linked_list(vec![1, 2, 3, 4, 5], 0);
+        let head_1 = from_vec_to_list(vec![1, 2, 3, 4, 5], 0);
+        let head_2 = from_vec_to_list(vec![1, 2, 3, 4, 5], 0);
         let output = vec![3, 4, 5];
         let result_1 = Solution::middle_node(head_1);
         let result_2 = Solution::middle_node_2(head_2);
-        assert_eq!(from_linked_list_to_vec(result_1), output);
-        assert_eq!(from_linked_list_to_vec(result_2), output);
+        assert_eq!(from_list_to_vec(result_1), output);
+        assert_eq!(from_list_to_vec(result_2), output);
     }
 
     #[test]
     fn case_02() {
-        let head_1 = from_vec_to_linked_list(vec![1, 2, 3, 4, 5, 6], 0);
-        let head_2 = from_vec_to_linked_list(vec![1, 2, 3, 4, 5, 6], 0);
+        let head_1 = from_vec_to_list(vec![1, 2, 3, 4, 5, 6], 0);
+        let head_2 = from_vec_to_list(vec![1, 2, 3, 4, 5, 6], 0);
         let output = vec![4, 5, 6];
         let result_1 = Solution::middle_node(head_1);
         let result_2 = Solution::middle_node_2(head_2);
-        assert_eq!(from_linked_list_to_vec(result_1), output);
-        assert_eq!(from_linked_list_to_vec(result_2), output);
+        assert_eq!(from_list_to_vec(result_1), output);
+        assert_eq!(from_list_to_vec(result_2), output);
     }
 
     #[test]
-    fn case_from_vec_to_linked_list() {
+    fn case_from_vec_to_list() {
         let head = vec![1, 2, 3, 4];
-        let result = from_vec_to_linked_list(head, 0);
+        let result = from_vec_to_list(head, 0);
         let output = Some(Box::new(ListNode {
             val: 1,
             next: Some(Box::new(ListNode {
@@ -95,43 +95,58 @@ mod tests {
     }
 
     #[test]
-    fn case_from_linked_list_to_vec() {
-        let head = from_vec_to_linked_list(vec![1, 2, 3, 4, 5, 6], 0);
+    fn case_from_list_to_vec() {
+        let head = from_vec_to_list(vec![1, 2, 3, 4, 5, 6], 0);
         let output = vec![1, 2, 3, 4, 5, 6];
-        let result = from_linked_list_to_vec(head);
+        let result = from_list_to_vec(head);
         assert_eq!(result, output);
     }
 }
 
-pub fn from_vec_to_linked_list(vec: Vec<i32>, n: i32) -> Option<Box<ListNode>> {
-    let mut linked_list = None;
-
+pub fn from_vec_to_list(vec: Vec<i32>, n: i32) -> Option<Box<ListNode>> {
+    let mut head = None;
     if vec.is_empty() {
         return None;
     } else if n < vec.len() as i32 {
-        linked_list = Some(Box::new(ListNode::new(vec[n as usize])));
-        linked_list.as_mut().unwrap().next = from_vec_to_linked_list(vec, n + 1);
+        head = Some(Box::new(ListNode::new(vec[n as usize])));
+        head.as_mut().unwrap().next = from_vec_to_list(vec, n + 1);
     }
-    linked_list
+    head
 }
 
-pub fn from_linked_list_to_vec(linked_list: Option<Box<ListNode>>) -> Vec<i32> {
+// pub fn from_list_to_vec(linked_list: Option<Box<ListNode>>) -> Vec<i32> {
+//     if let None = linked_list {
+//         return vec![];
+//     }
+//     let mut linked_list_vector: Vec<i32> = vec![];
+
+//     if let Some(mut node) = linked_list {
+//         let mut condition = true;
+//         while condition {
+//             linked_list_vector.push(node.val);
+
+//             if let Some(next) = node.next {
+//                 node = next;
+//             } else {
+//                 condition = false;
+//             }
+//         }
+//     }
+
+//     linked_list_vector
+// }
+
+pub fn from_list_to_vec(linked_list: Option<Box<ListNode>>) -> Vec<i32> {
     if let None = linked_list {
         return vec![];
     }
     let mut linked_list_vector: Vec<i32> = vec![];
+    let mut head = linked_list.clone();
 
-    if let Some(mut node) = linked_list {
-        let mut condition = true;
-        while condition {
-            linked_list_vector.push(node.val);
-
-            if let Some(next) = node.next {
-                node = next;
-            } else {
-                condition = false;
-            }
-        }
+    while head.is_some() {
+        let node = head.clone().unwrap();
+        linked_list_vector.push(node.val);
+        head = node.next;
     }
 
     linked_list_vector
