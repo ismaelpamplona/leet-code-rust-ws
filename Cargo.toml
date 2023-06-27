@@ -74,4 +74,5 @@ members = [
     "p791_custom_sort_string",
     "p1657_determine_if_two_strings_are_close",
     "l0008_linked_list",
+    "p141_linked_list_cycle",
 ]
