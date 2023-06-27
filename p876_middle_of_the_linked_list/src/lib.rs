@@ -114,28 +114,6 @@ pub fn from_vec_to_list(vec: Vec<i32>, n: i32) -> Option<Box<ListNode>> {
     head
 }
 
-// pub fn from_list_to_vec(linked_list: Option<Box<ListNode>>) -> Vec<i32> {
-//     if let None = linked_list {
-//         return vec![];
-//     }
-//     let mut linked_list_vector: Vec<i32> = vec![];
-
-//     if let Some(mut node) = linked_list {
-//         let mut condition = true;
-//         while condition {
-//             linked_list_vector.push(node.val);
-
-//             if let Some(next) = node.next {
-//                 node = next;
-//             } else {
-//                 condition = false;
-//             }
-//         }
-//     }
-
-//     linked_list_vector
-// }
-
 pub fn from_list_to_vec(linked_list: Option<Box<ListNode>>) -> Vec<i32> {
     if let None = linked_list {
         return vec![];
