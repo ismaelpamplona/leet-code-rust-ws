@@ -76,4 +76,5 @@ members = [
     "l0008_linked_list",
     "p141_linked_list_cycle",
     "l0009_linked_list_get_k_node_from_the_end",
+    "p83_remove_duplicates_from_sorted_list",
 ]
