@@ -79,4 +79,5 @@ members = [
     "p83_remove_duplicates_from_sorted_list",
     "p2090_k_radius_subarray_averages",
     "l0010_reversing_linked_list",
+    "p24_swap_nodes_in_pairs",
 ]
