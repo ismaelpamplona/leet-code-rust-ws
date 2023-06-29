@@ -17,13 +17,11 @@ impl Solution {
         let mut prev: Option<Box<ListNode>> = None;
         let mut cur = head;
 
-        while cur.is_some() {
-            if let Some(box_node) = cur.as_mut() {
-                let next_node = box_node.next.take();
-                box_node.next = prev.take();
-                prev = cur;
-                cur = next_node;
-            }
+        while let Some(box_node) = cur.as_mut() {
+            let next_node = box_node.next.take();
+            box_node.next = prev.take();
+            prev = cur;
+            cur = next_node;
         }
         prev
     }
