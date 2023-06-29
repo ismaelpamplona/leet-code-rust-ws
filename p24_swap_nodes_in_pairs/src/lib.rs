@@ -14,15 +14,29 @@ impl ListNode {
 struct Solution;
 impl Solution {
     pub fn swap_pairs_it(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut node = head;
-        if let Some(ref mut fst) = node {
+        if head.is_none() {
+            return None;
+        }
+        let mut dummy = Box::new(ListNode {
+            val: -1,
+            next: head,
+        });
+        let mut prev = &mut dummy;
+
+        while let Some(mut fst) = prev.next.take() {
             if let Some(mut snd) = fst.next.take() {
-                std::mem::swap(fst, &mut snd);
-                snd.next = Self::swap_pairs_it(fst.next.take());
-                fst.next = Some(snd);
+                fst.next = snd.next.take();
+                snd.next = Some(fst);
+                prev.next = Some(snd);
+
+                prev = prev.next.as_mut().unwrap().next.as_mut().unwrap();
+            } else {
+                prev.next = Some(fst);
+                prev = prev.next.as_mut().unwrap();
             }
         }
-        node
+
+        dummy.next
     }
 
     pub fn swap_pairs_rec(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
