@@ -80,4 +80,5 @@ members = [
     "p2090_k_radius_subarray_averages",
     "l0010_reversing_linked_list",
     "p24_swap_nodes_in_pairs",
+    "p92_reverse_linked_list_ii",
 ]
