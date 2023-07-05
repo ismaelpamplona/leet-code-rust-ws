@@ -83,6 +83,14 @@ mod tests {
         let result1 = Solution::reverse_between_it(head.clone(), 3, 5);
         assert_eq!(from_list_to_vec(result1), output);
     }
+
+    #[test]
+    fn case_04() {
+        let head = from_vec_to_list_it(vec![]);
+        let output: Vec<i32> = vec![];
+        let result1 = Solution::reverse_between_it(head.clone(), 3, 5);
+        assert_eq!(from_list_to_vec(result1), output);
+    }
 }
 
 pub fn from_vec_to_list_it(vec: Vec<i32>) -> Option<Box<ListNode>> {
