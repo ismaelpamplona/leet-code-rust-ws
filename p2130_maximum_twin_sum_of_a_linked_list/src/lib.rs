@@ -13,10 +13,10 @@ impl ListNode {
 
 struct Solution;
 impl Solution {
-    pub fn pair_sum(mut head: Option<Box<ListNode>>) -> i32 {
+    pub fn pair_sum(head: Option<Box<ListNode>>) -> i32 {
         let mut slow = &head;
         let mut fast = &head;
-        while fast.is_some() {
+        while fast.as_ref().map_or(false, |node| node.next.is_some()) {
             slow = &slow.as_ref().unwrap().next;
             fast = &fast.as_ref().unwrap().next.as_ref().unwrap().next;
         }
@@ -24,21 +24,19 @@ impl Solution {
         let mut prev: Option<Box<ListNode>> = None;
         let mut cur = slow.clone();
 
-        while let Some(mut node) = cur.take() {
-            let next = node.next.take();
-            node.next = prev.take();
+        while let Some(mut node) = cur {
+            cur = node.next;
+            node.next = prev;
             prev = Some(node);
-            cur = next;
         }
 
-        let mut back = prev;
-        let mut start = head;
+        let mut start = &head;
         let mut max_sum = 0;
-        while let Some(mut second) = back.take() {
-            let mut first = start.unwrap();
+        while let Some(second) = prev {
+            let mut first = start.as_ref().unwrap();
             max_sum = max_sum.max(first.val + second.val);
-            start = first.next.take();
-            back = second.next.take();
+            start = &first.next;
+            prev = second.next;
         }
         max_sum
     }
