@@ -85,4 +85,5 @@ members = [
     "l0009_linked_list_get_k_node_from_the_end_v2",
     "l0010_stacks",
     "p24_swap_nodes_in_pairs_v2",
+    "p2130_maximum_twin_sum_of_a_linked_list",
 ]
