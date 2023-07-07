@@ -42,4 +42,12 @@ mod tests {
         let result = Solution::backspace_compare(s, t);
         assert_eq!(result, false);
     }
+
+    #[test]
+    fn case_04() {
+        let s = String::from("y#fo##f");
+        let t = String::from("y#f#o##f");
+        let result = Solution::backspace_compare(s, t);
+        assert_eq!(result, true);
+    }
 }
