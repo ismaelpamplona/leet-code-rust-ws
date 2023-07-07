@@ -13,5 +13,5 @@ impl Solution {
 ## First approach - Stack
 
 - Time complexity : $O(n)$, where $n$ is a string length.
-- Space complexity : O(n−d), where $d$ is a total length
+- Space complexity : $O(n)$, where $d$ is a total length
 for all duplicates.
