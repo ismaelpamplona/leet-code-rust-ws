@@ -10,7 +10,7 @@ impl Solution {
 }
 ```
 
-## First approach
+## First approach - Stack and HashMap
 
 - n = number of nodes
 - time complexity: O(n)
