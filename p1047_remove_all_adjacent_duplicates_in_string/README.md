@@ -10,7 +10,7 @@ impl Solution {
 }
 ```
 
-## First approach - Stack and HashMap
+## First approach - Stack
 
 - Time complexity : $O(n)$, where $n$ is a string length.
 - Space complexity : O(n−d), where $d$ is a total length
