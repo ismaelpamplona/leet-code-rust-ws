@@ -86,4 +86,9 @@ members = [
     "l0010_stacks",
     "p24_swap_nodes_in_pairs_v2",
     "p2130_maximum_twin_sum_of_a_linked_list",
+    "p20_valid_parentheses",
+    "p1047_remove_all_adjacent_duplicates_in_string",
+    "p844_backspace_string_compare",
+    "p71_simplify_path",
+    "p1544_make_the_string_great",
 ]
