@@ -32,7 +32,6 @@ impl RecentCounter {
 
 ## First approach 
 
-- n = number of nodes
-- time complexity: O(n)
+- time complexity: O(1)
 - space complexity: O(1)
 
