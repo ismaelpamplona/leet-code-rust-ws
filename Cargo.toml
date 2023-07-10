@@ -93,4 +93,5 @@ members = [
     "p1544_make_the_string_great",
     "l0011_queues",
     "p933_number_of_recent_calls",
+    "p346_moving_average_from_data_stream",
 ]
