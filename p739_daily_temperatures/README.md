@@ -10,8 +10,8 @@ impl Solution {
 }
 ```
 
-## First approach 
+## First approach - Monotonic Stack
 
-- time complexity: O(1)
-- space complexity: O(1)
+- time complexity: $O(2n) = O(n)$
+- space complexity: $O(n)$
 
