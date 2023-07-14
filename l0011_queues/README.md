@@ -4,9 +4,6 @@
 - Elements are added and removed from opposite sides.
 - Example: if multiple people are trying to use a printer at the same time.
 
-
-
-
 ## Time Complexity
 - Dependes on the implementation. 
 - You can use a dynamic array, but operations on the front of the array (adding or removal) are $O(n)$, where $n$ is the size of the array.
