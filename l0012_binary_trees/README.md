@@ -126,21 +126,105 @@ class TreeNode:
     pub fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) {
       if let Some(node) = root {
           let borrowed = node.borrow();
-          let left = &borrowed.left;
-          dfs(left); // 1
-          let right = &borrowed.right;
-          dfs(right); // 2
+          Self::dfs(&borrowed.left); // 1
+          Self::dfs(&borrowed.right); // 2
       }
     }
 ```
-There are three types of DFS. Each of the three types differs only in the order that they execute steps 2/3.
+There are three types of DFS. Each of the three types differs only in the order that they execute steps 2/3. Let's use the following tree as reference:
+
+```code
+      0
+    /   \
+   1     2
+ /   \     \
+3     4     5
+        \
+         6
+```
 
 #### 1. Preorder traversal
 
+- The logic is done on the current node before moving to the children. 
+- Let's say that we wanted to just print the value of each node in the tree to the console. In that case, at any given node, we would print the current node's value, then recursively call the left child, then recursively call the right child.
+
+  ```Rust
+  pub fn preorder_dfs(root: &Option<Rc<RefCell<TreeNode>>>) {
+      if let Some(node) = root {
+          let borrowed = node.borrow();
+          println!("{:?}", &borrowed.val); // preorder logic
+          Self::preorder_dfs(&borrowed.left); // 1
+          Self::preorder_dfs(&borrowed.right); // 2
+      }
+  }
+  ```
+
+- Print sequence: `0, 1, 3, 4, 6, 2, 5`
+
 #### 2. Inorder traversal
+
+- First recursively call the left child.
+- Then perform logic on the current node, then recursively call the right child
+- This means no logic will be done until we reach a node without a left child since calling on the left child takes priority over performing logic.
+
+  ```Rust
+  pub fn inorder_dfs(root: &Option<Rc<RefCell<TreeNode>>>) {
+      if let Some(node) = root {
+          let borrowed = node.borrow();
+          Self::inorder_dfs(&borrowed.left); // 1
+          println!("{:?}", &borrowed.val); // inorder logic
+          Self::inorder_dfs(&borrowed.right); // 2
+      }
+  }
+  ```
+- Print sequence: `3, 1, 4, 6, 0, 2, 5`
 
 #### 3. Postorder traversal
 
+- First recursively call on the children first and then perform logic on the current node. 
+- This means no logic will be done until we reach a leaf node since calling on the children takes priority over performing logic. 
+- In a postorder traversal, the root is the last node where logic is done.
+
+  ```Rust
+  pub fn postorder_dfs(root: &Option<Rc<RefCell<TreeNode>>>) {
+      if let Some(node) = root {
+          let borrowed = node.borrow();
+          Self::postorder_dfs(&borrowed.left); // 1
+          Self::postorder_dfs(&borrowed.right); // 2
+          println!("{:?}", &borrowed.val); // postorder logic
+      }
+  }
+  ```
+- Print sequence: `3, 6, 4, 1, 5, 2, 0`
 
 ### Breadth-first search (BFS)
 
+## Nodes, pointers, mutability (in Rust)
+
+### Rc module-level documentation
+[https://doc.rust-lang.org/std/rc/index.html](https://doc.rust-lang.org/std/rc/index.html)
+
+### When to choose interior mutability
+[https://doc.rust-lang.org/std/cell/index.html#when-to-choose-interior-mutability](https://doc.rust-lang.org/std/cell/index.html#when-to-choose-interior-mutability)
+
+### Basic binary tree representation
+
+```Rust
+#[derive(Debug, PartialEq, Eq)]
+pub struct TreeNode {
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
+}
+
+impl TreeNode {
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
+    }
+}
+```
