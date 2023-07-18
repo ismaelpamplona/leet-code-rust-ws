@@ -100,4 +100,5 @@ members = [
     "p496_next_greater_element_i",
     "p901_online_stock_span",
     "l0012_binary_trees",
+    "p104_maximum_depth_of_binary_tree",
 ]
