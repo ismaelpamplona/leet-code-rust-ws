@@ -35,9 +35,15 @@ impl Solution {
 - time complexity: $O(n)$
 - space complexity: $O(log(n))$
 
-## First approach - Depth-first search (DFS) (tail recursion)
+## Second approach - Depth-first search (DFS) (tail recursion)
 
 - n = number of nodes
 - time complexity: $O(n)$
 - space complexity: $O(2^{(log(n−1))}) = O(n/2) = O(n)$
+
+## Third approach - Depth-first search (DFS) (preorder iterative)
+
+- n = number of nodes
+- time complexity: $O(n)$
+- space complexity: $O(logn)$
 
