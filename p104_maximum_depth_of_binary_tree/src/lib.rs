@@ -27,7 +27,7 @@ impl Solution {
             None => 0,
             Some(node) => {
                 let node = node.borrow();
-                let left = node.left.as_ref().map(|rc| Rc::clone(rc));
+                let left = node.left.as_ref().map(Rc::clone);
                 let right = node.right.as_ref().map(Rc::clone);
                 let left_height = Solution::max_depth(left);
                 let right_height = Solution::max_depth(right);
@@ -37,10 +37,6 @@ impl Solution {
     }
 
     pub fn max_depth_tail(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if root.is_none() {
-            return 0;
-        }
-
         fn next_max_depth(q: &mut VecDeque<(Rc<RefCell<TreeNode>>, i32)>, max_depth: &mut i32) {
             while let Some((next_node, next_level)) = q.pop_front() {
                 *max_depth = (*max_depth).max(next_level);
@@ -57,14 +53,19 @@ impl Solution {
             }
         }
 
-        let mut q: VecDeque<(Rc<RefCell<TreeNode>>, i32)> = VecDeque::new();
-        let mut max_depth = 0;
+        match root {
+            None => 0,
+            Some(node) => {
+                let mut q: VecDeque<(Rc<RefCell<TreeNode>>, i32)> = VecDeque::new();
+                let mut max_depth = 0;
 
-        q.push_back((Rc::clone(root.as_ref().unwrap()), 1));
+                q.push_back((Rc::clone(&node), 1));
 
-        next_max_depth(&mut q, &mut max_depth);
+                next_max_depth(&mut q, &mut max_depth);
 
-        max_depth
+                max_depth
+            }
+        }
     }
 }
 #[cfg(test)]
