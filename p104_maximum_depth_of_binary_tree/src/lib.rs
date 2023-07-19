@@ -70,7 +70,10 @@ impl Solution {
 
     pub fn max_depth_it(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut ans = 0;
-        let mut stack = vec![(Rc::clone(root.as_ref().unwrap()), 1)];
+        let mut stack = vec![];
+        if let Some(node) = root.as_ref() {
+            stack.push((Rc::clone(node), 1));
+        }
         match root {
             None => 0,
             Some(_) => {
