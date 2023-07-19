@@ -29,9 +29,9 @@ impl Solution {
     }
 }
 ```
-## First approach - Recursive
+## First approach - Depth-first search (DFS) 
 
 - n = number of nodes
-- time complexity: O(n)
-- space complexity: O(n)
+- time complexity: $O(n)$
+- space complexity: $O(log(n))$
 
