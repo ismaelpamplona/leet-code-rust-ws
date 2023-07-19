@@ -67,6 +67,27 @@ impl Solution {
             }
         }
     }
+
+    pub fn max_depth_it(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut ans = 0;
+        let mut stack = vec![(Rc::clone(root.as_ref().unwrap()), 1)];
+        match root {
+            None => 0,
+            Some(_) => {
+                while let Some((node, depth)) = stack.pop() {
+                    let node = node.borrow();
+                    ans = ans.max(depth);
+                    if let Some(node) = node.left.as_ref() {
+                        stack.push((Rc::clone(node), depth + 1));
+                    }
+                    if let Some(node) = node.right.as_ref() {
+                        stack.push((Rc::clone(node), depth + 1));
+                    }
+                }
+                ans
+            }
+        }
+    }
 }
 #[cfg(test)]
 mod tests {
@@ -90,8 +111,10 @@ mod tests {
         let root = from_vec_to_bt(&vec);
         let result1 = Solution::max_depth(root.clone());
         let result2 = Solution::max_depth_tail(root.clone());
+        let result3 = Solution::max_depth_it(root.clone());
         assert_eq!(result1, 3);
         assert_eq!(result2, 3);
+        assert_eq!(result3, 3);
     }
 
     #[test]
@@ -100,8 +123,10 @@ mod tests {
         let root = from_vec_to_bt(&vec);
         let result1 = Solution::max_depth(root.clone());
         let result2 = Solution::max_depth_tail(root.clone());
+        let result3 = Solution::max_depth_it(root.clone());
         assert_eq!(result1, 2);
         assert_eq!(result2, 2);
+        assert_eq!(result3, 2);
     }
 }
 
