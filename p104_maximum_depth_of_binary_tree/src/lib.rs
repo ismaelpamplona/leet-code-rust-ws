@@ -35,6 +35,37 @@ impl Solution {
             }
         }
     }
+
+    pub fn max_depth_tail(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if root.is_none() {
+            return 0;
+        }
+
+        fn next_max_depth(q: &mut VecDeque<(Rc<RefCell<TreeNode>>, i32)>, max_depth: &mut i32) {
+            while let Some((next_node, next_level)) = q.pop_front() {
+                *max_depth = (*max_depth).max(next_level);
+
+                let next_level = next_level + 1;
+                let next_node = next_node.borrow();
+
+                if let Some(left) = &next_node.left {
+                    q.push_back((Rc::clone(left), next_level));
+                }
+                if let Some(right) = &next_node.right {
+                    q.push_back((Rc::clone(right), next_level));
+                }
+            }
+        }
+
+        let mut q: VecDeque<(Rc<RefCell<TreeNode>>, i32)> = VecDeque::new();
+        let mut max_depth = 0;
+
+        q.push_back((Rc::clone(root.as_ref().unwrap()), 1));
+
+        next_max_depth(&mut q, &mut max_depth);
+
+        max_depth
+    }
 }
 #[cfg(test)]
 mod tests {
@@ -56,16 +87,20 @@ mod tests {
     fn case_01() {
         let vec = vec![Some(3), Some(9), Some(20), None, None, Some(15), Some(7)];
         let root = from_vec_to_bt(&vec);
-        let result = Solution::max_depth(root);
-        assert_eq!(result, 3);
+        let result1 = Solution::max_depth(root.clone());
+        let result2 = Solution::max_depth_tail(root.clone());
+        assert_eq!(result1, 3);
+        assert_eq!(result2, 3);
     }
 
     #[test]
     fn case_02() {
         let vec = vec![Some(1), None, Some(2)];
         let root = from_vec_to_bt(&vec);
-        let result = Solution::max_depth(root);
-        assert_eq!(result, 2);
+        let result1 = Solution::max_depth(root.clone());
+        let result2 = Solution::max_depth_tail(root.clone());
+        assert_eq!(result1, 2);
+        assert_eq!(result2, 2);
     }
 }
 
