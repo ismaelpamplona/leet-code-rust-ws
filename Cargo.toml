@@ -102,4 +102,5 @@ members = [
     "l0012_binary_trees",
     "p104_maximum_depth_of_binary_tree",
     "p112_path_sum",
+    "p1448_count_good_nodes_in_binary_tree",
 ]
