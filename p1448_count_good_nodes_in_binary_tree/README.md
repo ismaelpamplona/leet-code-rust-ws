@@ -35,4 +35,10 @@ impl Solution {
 - time complexity: $O(n)$
 - space complexity: $O(n)$
 
+## Second approach - Depth-first search (DFS) (iteration)
+
+- n = number of nodes
+- time complexity: $O(n)$
+- space complexity: $O(n)$
+
 

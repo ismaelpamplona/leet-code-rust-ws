@@ -108,6 +108,30 @@ impl Solution {
 
         dfs(root, i32::MIN)
     }
+
+    pub fn good_nodes_it(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut stack = vec![];
+        if let Some(node) = root {
+            stack.push((Rc::clone(&node), i32::MIN));
+        } else {
+            return 0;
+        }
+        let mut ans = 0;
+        while !stack.is_empty() {
+            if let Some((node, higher)) = stack.pop() {
+                let node = node.borrow();
+                if node.val >= higher {
+                    ans += 1;
+                }
+                for i in 0..=1 {
+                    if let Some(leaf) = &node[i] {
+                        stack.push((Rc::clone(leaf), higher.max(node.val)));
+                    }
+                }
+            }
+        }
+        ans
+    }
 }
 
 #[cfg(test)]
@@ -130,24 +154,30 @@ mod tests {
     fn case_01() {
         let vec = vec![Some(3), Some(1), Some(4), Some(3), None, Some(1), Some(5)];
         let root = from_vec_to_bt(&vec);
-        let result = Solution::good_nodes(root);
-        assert_eq!(result, 4);
+        let result1 = Solution::good_nodes(root.clone());
+        let result2 = Solution::good_nodes_it(root.clone());
+        assert_eq!(result1, 4);
+        assert_eq!(result2, 4);
     }
 
     #[test]
     fn case_02() {
         let vec = vec![Some(3), Some(3), None, Some(4), Some(2)];
         let root = from_vec_to_bt(&vec);
-        let result = Solution::good_nodes(root);
-        assert_eq!(result, 3);
+        let result1 = Solution::good_nodes(root.clone());
+        let result2 = Solution::good_nodes_it(root.clone());
+        assert_eq!(result1, 3);
+        assert_eq!(result2, 3);
     }
 
     #[test]
     fn case_03() {
         let vec = vec![Some(1)];
         let root = from_vec_to_bt(&vec);
-        let result = Solution::good_nodes(root);
-        assert_eq!(result, 1);
+        let result1 = Solution::good_nodes(root.clone());
+        let result2 = Solution::good_nodes_it(root.clone());
+        assert_eq!(result1, 1);
+        assert_eq!(result2, 1);
     }
 
     #[test]
@@ -168,7 +198,9 @@ mod tests {
             Some(1),
         ];
         let root = from_vec_to_bt(&vec);
-        let result = Solution::good_nodes(root);
-        assert_eq!(result, 4);
+        let result1 = Solution::good_nodes(root.clone());
+        let result2 = Solution::good_nodes_it(root.clone());
+        assert_eq!(result1, 4);
+        assert_eq!(result2, 4);
     }
 }
