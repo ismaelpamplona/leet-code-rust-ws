@@ -42,11 +42,46 @@ impl IndexMut<usize> for TreeNode {
 }
 
 fn from_vec_to_bt(vec: &[Option<i32>]) -> Option<Rc<RefCell<TreeNode>>> {
-    None
+    let tree = Rc::new(RefCell::new(TreeNode::new(vec.get(0)?.unwrap())));
+    let mut q = VecDeque::from([Rc::clone(&tree)]);
+    let mut i = 0;
+    while let Some(node) = q.pop_front() {
+        let mut node = node.borrow_mut();
+        for j in 0..=1 {
+            i += 1;
+            if let Some(&Some(val)) = vec.get(i) {
+                let new_node = Rc::new(RefCell::new(TreeNode::new(val)));
+                node[j] = Some(Rc::clone(&new_node));
+                q.push_back(new_node);
+            }
+        }
+    }
+    Some(tree)
 }
 
 fn from_bt_to_vec(root: &Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut result: Vec<Option<i32>> = vec![];
+    let mut q = VecDeque::new();
+
+    if let Some(node) = root {
+        q.push_back(Rc::clone(node));
+        result.push(Some(node.borrow().val));
+    }
+
+    while let Some(node) = q.pop_front() {
+        for i in 0..=1 {
+            if let Some(leaf) = &node.borrow()[i] {
+                result.push(Some(leaf.borrow().val));
+                q.push_back(Rc::clone(leaf));
+            } else {
+                result.push(None);
+            }
+        }
+    }
+
+    while result[result.len() - 1].is_none() {
+        result.pop();
+    }
 
     result
 }
@@ -54,7 +89,24 @@ fn from_bt_to_vec(root: &Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
 struct Solution;
 impl Solution {
     pub fn good_nodes(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        0
+        fn dfs(root: Option<Rc<RefCell<TreeNode>>>, mut higher: i32) -> i32 {
+            let mut ans = 0;
+            if let Some(node) = root {
+                let node = node.borrow();
+                higher = higher.max(node.val);
+                let left = dfs(node.left.as_ref().map(Rc::clone), higher);
+                let right = dfs(node.right.as_ref().map(Rc::clone), higher);
+                ans = left + right;
+                if node.val >= higher {
+                    ans += 1;
+                }
+                ans
+            } else {
+                0
+            }
+        }
+
+        dfs(root, i32::MIN)
     }
 }
 
@@ -72,5 +124,51 @@ mod tests {
         let vec2_from_bt = from_bt_to_vec(&bt_from_vec2);
         assert_eq!(vec1, vec1_from_bt);
         assert_eq!(vec2, vec2_from_bt);
+    }
+
+    #[test]
+    fn case_01() {
+        let vec = vec![Some(3), Some(1), Some(4), Some(3), None, Some(1), Some(5)];
+        let root = from_vec_to_bt(&vec);
+        let result = Solution::good_nodes(root);
+        assert_eq!(result, 4);
+    }
+
+    #[test]
+    fn case_02() {
+        let vec = vec![Some(3), Some(3), None, Some(4), Some(2)];
+        let root = from_vec_to_bt(&vec);
+        let result = Solution::good_nodes(root);
+        assert_eq!(result, 3);
+    }
+
+    #[test]
+    fn case_03() {
+        let vec = vec![Some(1)];
+        let root = from_vec_to_bt(&vec);
+        let result = Solution::good_nodes(root);
+        assert_eq!(result, 1);
+    }
+
+    #[test]
+    fn case_04() {
+        let vec = vec![
+            Some(5),
+            Some(4),
+            Some(8),
+            Some(11),
+            None,
+            Some(13),
+            Some(4),
+            Some(7),
+            Some(2),
+            None,
+            None,
+            None,
+            Some(1),
+        ];
+        let root = from_vec_to_bt(&vec);
+        let result = Solution::good_nodes(root);
+        assert_eq!(result, 4);
     }
 }
