@@ -50,9 +50,9 @@ fn from_vec_to_bt(vec: &[Option<i32>]) -> Option<Rc<RefCell<TreeNode>>> {
         for j in 0..=1 {
             i += 1;
             if let Some(&Some(val)) = vec.get(i) {
-                let new_node = &Rc::new(RefCell::new(TreeNode::new(val)));
-                node[j] = Some(Rc::clone(new_node));
-                q.push_back(Rc::clone(new_node));
+                let new_node = Rc::new(RefCell::new(TreeNode::new(val)));
+                node[j] = Some(Rc::clone(&new_node));
+                q.push_back(new_node);
             }
         }
     }
@@ -63,8 +63,8 @@ fn from_bt_to_vec(root: &Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut result = vec![];
     let mut q = VecDeque::new();
     if let Some(node) = root {
-        q.push_back(Rc::clone(node));
         result.push(Some(node.borrow().val));
+        q.push_back(Rc::clone(node));
     }
     while let Some(node) = q.pop_front() {
         for i in 0..=1 {
@@ -76,32 +76,27 @@ fn from_bt_to_vec(root: &Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
             }
         }
     }
-
     while result[result.len() - 1].is_none() {
         result.pop();
     }
-
     result
 }
 
 struct Solution;
 impl Solution {
-    pub fn min_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        fn dfs(node: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    pub fn max_ancestor_diff(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        fn dfs(node: &Option<Rc<RefCell<TreeNode>>>, cur_max: i32, cur_min: i32) -> i32 {
             if let Some(node) = node {
-                let left = node.borrow().left.as_ref().map(Rc::clone);
-                let right = node.borrow().right.as_ref().map(Rc::clone);
-                if node.borrow().left.is_none() {
-                    return 1 + dfs(right);
-                } else if node.borrow().right.is_none() {
-                    return 1 + dfs(left);
-                }
-                return 1 + dfs(left).min(dfs(right));
+                let node = node.borrow();
+                let cur_max = cur_max.max(node.val);
+                let cur_min = cur_min.min(node.val);
+                let left = dfs(&node.left, cur_max, cur_min);
+                let right = dfs(&node.right, cur_max, cur_min);
+                return left.max(right);
             }
-            0
+            cur_max - cur_min
         }
-
-        dfs(root)
+        dfs(&root, i32::MIN, i32::MAX)
     }
 }
 
@@ -123,27 +118,30 @@ mod tests {
 
     #[test]
     fn case_01() {
-        let vec = vec![Some(3), Some(9), Some(20), None, None, Some(15), Some(7)];
+        let vec = vec![
+            Some(8),
+            Some(3),
+            Some(10),
+            Some(1),
+            Some(6),
+            None,
+            Some(14),
+            None,
+            None,
+            Some(4),
+            Some(7),
+            Some(13),
+        ];
         let root = from_vec_to_bt(&vec);
-        let result1 = Solution::min_depth(root.clone());
-        assert_eq!(result1, 2);
+        let result = Solution::max_ancestor_diff(root);
+        assert_eq!(result, 7);
     }
 
     #[test]
     fn case_02() {
-        let vec = vec![
-            Some(2),
-            None,
-            Some(3),
-            None,
-            Some(4),
-            None,
-            Some(5),
-            None,
-            Some(6),
-        ];
+        let vec = vec![Some(1), None, Some(2), None, Some(0), Some(3)];
         let root = from_vec_to_bt(&vec);
-        let result1 = Solution::min_depth(root.clone());
-        assert_eq!(result1, 5);
+        let result = Solution::max_ancestor_diff(root);
+        assert_eq!(result, 3);
     }
 }
