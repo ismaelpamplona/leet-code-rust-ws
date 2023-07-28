@@ -99,10 +99,9 @@ impl Solution {
                 if node.val >= higher {
                     ans += 1;
                 }
-                ans
-            } else {
-                0
+                return ans;
             }
+            0
         }
 
         dfs(root, i32::MIN)
