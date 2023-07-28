@@ -90,13 +90,12 @@ struct Solution;
 impl Solution {
     pub fn good_nodes(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         fn dfs(root: Option<Rc<RefCell<TreeNode>>>, mut higher: i32) -> i32 {
-            let mut ans = 0;
             if let Some(node) = root {
                 let node = node.borrow();
                 higher = higher.max(node.val);
                 let left = dfs(node.left.as_ref().map(Rc::clone), higher);
                 let right = dfs(node.right.as_ref().map(Rc::clone), higher);
-                ans = left + right;
+                let mut ans = left + right;
                 if node.val >= higher {
                     ans += 1;
                 }
