@@ -136,6 +136,16 @@ impl Solution {
         }
         0
     }
+
+    pub fn dfs_max_depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = root {
+            let borrowed = node.borrow();
+            let left = Self::dfs_max_depth(&borrowed.left); // 1
+            let right = Self::dfs_max_depth(&borrowed.right); // 2
+            return left.max(right) + 1;
+        }
+        0
+    }
 }
 
 #[cfg(test)]
@@ -175,11 +185,15 @@ mod tests {
     #[test]
     fn case_dfs() {
         let node6 = Rc::new(RefCell::new(TreeNode::new(6)));
-        let node5 = Rc::new(RefCell::new(TreeNode::new(5)));
+        let node5 = Rc::new(RefCell::new(TreeNode {
+            val: 5,
+            left: None,
+            right: Some(node6),
+        }));
         let node4 = Rc::new(RefCell::new(TreeNode {
             val: 4,
             left: None,
-            right: Some(node6),
+            right: None,
         }));
         let node3 = Rc::new(RefCell::new(TreeNode {
             val: 3,
@@ -205,7 +219,11 @@ mod tests {
         Solution::preorder_dfs(&Some(root.clone()));
         Solution::inorder_dfs(&Some(root.clone()));
         Solution::postorder_dfs(&Some(root.clone()));
-        println!("dfs_sum:, {}", Solution::dfs_sum(&Some(root.clone())));
+        println!("dfs_sum: {}", Solution::dfs_sum(&Some(root.clone())));
+        println!(
+            "dfs_max_depth: {}",
+            Solution::dfs_max_depth(&Some(root.clone()))
+        );
     }
 
     #[test]
