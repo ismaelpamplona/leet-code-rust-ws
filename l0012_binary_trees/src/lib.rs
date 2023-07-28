@@ -126,6 +126,16 @@ impl Solution {
             println!("{:?}", &borrowed.val); // postorder logic
         }
     }
+
+    pub fn dfs_sum(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = root {
+            let borrowed = node.borrow();
+            let left = Self::dfs_sum(&borrowed.left); // 1
+            let right = Self::dfs_sum(&borrowed.right); // 2
+            return node.borrow().val + left + right;
+        }
+        0
+    }
 }
 
 #[cfg(test)]
@@ -195,6 +205,7 @@ mod tests {
         Solution::preorder_dfs(&Some(root.clone()));
         Solution::inorder_dfs(&Some(root.clone()));
         Solution::postorder_dfs(&Some(root.clone()));
+        println!("dfs_sum:, {}", Solution::dfs_sum(&Some(root.clone())));
     }
 
     #[test]
