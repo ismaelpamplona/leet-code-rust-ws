@@ -92,11 +92,27 @@ fn from_bt_to_vec(root: &Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
 
 struct Solution;
 impl Solution {
-    pub fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) {
+    pub fn dfs_rec(root: &Option<Rc<RefCell<TreeNode>>>) {
         if let Some(node) = root {
             let borrowed = node.borrow();
-            Self::dfs(&borrowed.left); // 1
-            Self::dfs(&borrowed.right); // 2
+            Self::dfs_rec(&borrowed.left); // 1
+            Self::dfs_rec(&borrowed.right); // 2
+        }
+    }
+
+    pub fn dfs_it(root: &Option<Rc<RefCell<TreeNode>>>) {
+        let mut stack = vec![];
+        if let Some(node) = root {
+            stack.push(Rc::clone(node));
+        }
+        while let Some(node) = stack.pop() {
+            let node = node.borrow();
+            println!("{}", node.val);
+            for i in 0..=1 {
+                if let Some(leaf) = &node[i] {
+                    stack.push(Rc::clone(leaf));
+                }
+            }
         }
     }
 
@@ -249,7 +265,8 @@ mod tests {
             left: Some(node1),
             right: Some(node2),
         }));
-        Solution::dfs(&Some(root.clone()));
+        Solution::dfs_rec(&Some(root.clone()));
+        Solution::dfs_it(&Some(root.clone()));
         Solution::preorder_dfs(&Some(root.clone()));
         Solution::inorder_dfs(&Some(root.clone()));
         Solution::postorder_dfs(&Some(root.clone()));
