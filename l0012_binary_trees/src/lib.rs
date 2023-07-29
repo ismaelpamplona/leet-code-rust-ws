@@ -224,102 +224,102 @@ mod tests {
 
     use super::*;
 
-    // #[test]
-    // fn case_rc() {
-    //     let test = Rc::new(1);
-    //     let down: Weak<i32> = Rc::downgrade(&test);
-    //     let up: Option<Rc<i32>> = down.upgrade();
+    #[test]
+    fn case_rc() {
+        let test = Rc::new(1);
+        let down: Weak<i32> = Rc::downgrade(&test);
+        let up: Option<Rc<i32>> = down.upgrade();
 
-    //     let foo = Rc::new(vec![1.0, 2.0, 3.0]);
-    //     let a = foo.clone();
-    //     let b = Rc::clone(&foo);
-    // }
+        let foo = Rc::new(vec![1.0, 2.0, 3.0]);
+        let a = foo.clone();
+        let b = Rc::clone(&foo);
+    }
 
-    // #[test]
-    // fn case_ref_cell() {
-    //     let shared_map: Rc<RefCell<_>> = Rc::new(RefCell::new(HashMap::new()));
-    //     // Create a new block to limit the scope of the dynamic borrow
-    //     {
-    //         let mut map: RefMut<'_, _> = shared_map.borrow_mut();
-    //         map.insert("africa", 92388);
-    //         map.insert("kyoto", 11837);
-    //         map.insert("piccadilly", 11826);
-    //         map.insert("marbles", 38);
-    //         let total_map: i32 = map.values().sum();
-    //         assert_eq!(total_map, 116089);
-    //     }
-    //     let total_shared: i32 = shared_map.borrow().values().sum();
-    //     assert_eq!(total_shared, 116089);
-    // }
+    #[test]
+    fn case_ref_cell() {
+        let shared_map: Rc<RefCell<_>> = Rc::new(RefCell::new(HashMap::new()));
+        // Create a new block to limit the scope of the dynamic borrow
+        {
+            let mut map: RefMut<'_, _> = shared_map.borrow_mut();
+            map.insert("africa", 92388);
+            map.insert("kyoto", 11837);
+            map.insert("piccadilly", 11826);
+            map.insert("marbles", 38);
+            let total_map: i32 = map.values().sum();
+            assert_eq!(total_map, 116089);
+        }
+        let total_shared: i32 = shared_map.borrow().values().sum();
+        assert_eq!(total_shared, 116089);
+    }
 
-    // #[test]
-    // fn case_dfs() {
-    //     let node6 = Rc::new(RefCell::new(TreeNode::new(6)));
-    //     let node5 = Rc::new(RefCell::new(TreeNode {
-    //         val: 5,
-    //         left: None,
-    //         right: Some(node6),
-    //     }));
-    //     let node4 = Rc::new(RefCell::new(TreeNode {
-    //         val: 4,
-    //         left: None,
-    //         right: None,
-    //     }));
-    //     let node3 = Rc::new(RefCell::new(TreeNode {
-    //         val: 3,
-    //         left: None,
-    //         right: None,
-    //     }));
-    //     let node2 = Rc::new(RefCell::new(TreeNode {
-    //         val: 2,
-    //         left: None,
-    //         right: Some(node5),
-    //     }));
-    //     let node1 = Rc::new(RefCell::new(TreeNode {
-    //         val: 1,
-    //         left: Some(node3),
-    //         right: Some(node4),
-    //     }));
-    //     let root = Rc::new(RefCell::new(TreeNode {
-    //         val: 0,
-    //         left: Some(node1),
-    //         right: Some(node2),
-    //     }));
-    //     Solution::dfs_rec(&Some(root.clone()));
-    //     Solution::dfs_it(&Some(root.clone()));
-    //     Solution::preorder_dfs(&Some(root.clone()));
-    //     Solution::inorder_dfs(&Some(root.clone()));
-    //     Solution::postorder_dfs(&Some(root.clone()));
-    //     println!("dfs_sum: {}", Solution::dfs_sum(&Some(root.clone())));
-    //     println!(
-    //         "dfs_max_depth: {}",
-    //         Solution::dfs_max_depth(&Some(root.clone()))
-    //     );
-    // }
+    #[test]
+    fn case_dfs() {
+        let node6 = Rc::new(RefCell::new(TreeNode::new(6)));
+        let node5 = Rc::new(RefCell::new(TreeNode {
+            val: 5,
+            left: None,
+            right: Some(node6),
+        }));
+        let node4 = Rc::new(RefCell::new(TreeNode {
+            val: 4,
+            left: None,
+            right: None,
+        }));
+        let node3 = Rc::new(RefCell::new(TreeNode {
+            val: 3,
+            left: None,
+            right: None,
+        }));
+        let node2 = Rc::new(RefCell::new(TreeNode {
+            val: 2,
+            left: None,
+            right: Some(node5),
+        }));
+        let node1 = Rc::new(RefCell::new(TreeNode {
+            val: 1,
+            left: Some(node3),
+            right: Some(node4),
+        }));
+        let root = Rc::new(RefCell::new(TreeNode {
+            val: 0,
+            left: Some(node1),
+            right: Some(node2),
+        }));
+        Solution::dfs_rec(&Some(root.clone()));
+        Solution::dfs_it(&Some(root.clone()));
+        Solution::preorder_dfs(&Some(root.clone()));
+        Solution::inorder_dfs(&Some(root.clone()));
+        Solution::postorder_dfs(&Some(root.clone()));
+        println!("dfs_sum: {}", Solution::dfs_sum(&Some(root.clone())));
+        println!(
+            "dfs_max_depth: {}",
+            Solution::dfs_max_depth(&Some(root.clone()))
+        );
+    }
 
-    // #[test]
-    // fn case_dfs_lca() {
-    //     let root_vec = vec![
-    //         Some(3),
-    //         Some(5),
-    //         Some(1),
-    //         Some(6),
-    //         Some(2),
-    //         Some(0),
-    //         Some(8),
-    //         None,
-    //         None,
-    //         Some(7),
-    //         Some(4),
-    //     ];
-    //     let p_vec = vec![Some(5)];
-    //     let q_vec = vec![Some(1)];
-    //     let root = from_vec_to_bt(&root_vec);
-    //     let p = from_vec_to_bt(&p_vec);
-    //     let q = from_vec_to_bt(&q_vec);
-    //     let result1 = Solution::dfs_lca(root.clone(), p.clone(), q.clone());
-    //     assert_eq!(result1.unwrap().borrow().val, 3);
-    // }
+    #[test]
+    fn case_dfs_lca() {
+        let root_vec = vec![
+            Some(3),
+            Some(5),
+            Some(1),
+            Some(6),
+            Some(2),
+            Some(0),
+            Some(8),
+            None,
+            None,
+            Some(7),
+            Some(4),
+        ];
+        let p_vec = vec![Some(5)];
+        let q_vec = vec![Some(1)];
+        let root = from_vec_to_bt(&root_vec);
+        let p = from_vec_to_bt(&p_vec);
+        let q = from_vec_to_bt(&q_vec);
+        let result1 = Solution::dfs_lca(root.clone(), p.clone(), q.clone());
+        assert_eq!(result1.unwrap().borrow().val, 3);
+    }
 
     #[test]
     fn case_bfs() {
