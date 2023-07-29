@@ -146,6 +146,40 @@ impl Solution {
         }
         0
     }
+
+    pub fn dfs_lca(
+        root: Option<Rc<RefCell<TreeNode>>>,
+        p: Option<Rc<RefCell<TreeNode>>>,
+        q: Option<Rc<RefCell<TreeNode>>>,
+    ) -> Option<Rc<RefCell<TreeNode>>> {
+        if let (Some(rn), Some(pn), Some(qn)) = (&root, &p, &q) {
+            if rn.borrow().val == pn.borrow().val || rn.borrow().val == qn.borrow().val {
+                return root;
+            }
+
+            let left = Self::dfs_lca(
+                rn.borrow().left.as_ref().map(Rc::clone),
+                Some(Rc::clone(pn)),
+                Some(Rc::clone(qn)),
+            );
+            let right = Self::dfs_lca(
+                rn.borrow().right.as_ref().map(Rc::clone),
+                Some(Rc::clone(pn)),
+                Some(Rc::clone(qn)),
+            );
+
+            if left.is_some() && right.is_some() {
+                return root;
+            }
+
+            if left.is_some() {
+                return left;
+            }
+
+            return right;
+        }
+        None
+    }
 }
 
 #[cfg(test)]
@@ -224,6 +258,30 @@ mod tests {
             "dfs_max_depth: {}",
             Solution::dfs_max_depth(&Some(root.clone()))
         );
+    }
+
+    #[test]
+    fn case_dfs_lca() {
+        let root_vec = vec![
+            Some(3),
+            Some(5),
+            Some(1),
+            Some(6),
+            Some(2),
+            Some(0),
+            Some(8),
+            None,
+            None,
+            Some(7),
+            Some(4),
+        ];
+        let p_vec = vec![Some(5)];
+        let q_vec = vec![Some(1)];
+        let root = from_vec_to_bt(&root_vec);
+        let p = from_vec_to_bt(&p_vec);
+        let q = from_vec_to_bt(&q_vec);
+        let result1 = Solution::dfs_lca(root.clone(), p.clone(), q.clone());
+        assert_eq!(result1.unwrap().borrow().val, 3);
     }
 
     #[test]
