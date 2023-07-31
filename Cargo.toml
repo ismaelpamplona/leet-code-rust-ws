@@ -112,4 +112,5 @@ members = [
     "p515_find_largest_value_in_each_tree_row",
     "p1302_deepest_leaves_sum",
     "p103_binary_tree_zigzag_level_order_traversal",
+    "p938_range_sum_of_bst",
 ]
