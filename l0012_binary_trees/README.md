@@ -265,7 +265,26 @@ $O(1)$.
 - If you have a [complete binary tree](#terminology), then the amount of space used by the recursive call stack for DFS is linear with the height, which is logarithmic with n (the number of nodes). The amount of space used by the queue is linear with n, **so DFS has a much better space complexity**. The reason the queue will grow linearly is because the final level in a complete binary tree can have up to $n \over 2$ nodes.
 - If you have a lopsided tree (like a straight line), then BFS will have an $O(1)$ space complexity while DFS will have $O(n)$ (although, a lopsided tree is an edge case whereas a full tree is the expectation).
 
-## Nodes, pointers, mutability (in Rust)
+## Binary search trees
+
+- A binary search tree (BST) is a type of binary tree.
+- The **left** subtree of a node contains only nodes with keys **lesser** than the node’s key.
+- The **right** subtree of a node contains only nodes with keys **greater** than the node’s key.
+- The left and right subtree each must also be a binary search tree.
+- There must be **no duplicate** nodes.
+
+    <img style="max-height: 400px" src="https://media.geeksforgeeks.org/wp-content/uploads/BSTSearch.png"/>
+
+- With a binary search tree, operations like searching, adding, and removing can be done in **$O(log n)$ time on average**, where $n$ is the number of nodes in the tree, using something called binary search, which is the focus of an upcoming chapter.
+- Let's say you have the above tree, and you want to check if the value `27` existed. Starting at the root, we can see that `21 < 27`. This means we can ignore the left subtree, because every value in the subtree is also going to be less than `27`. We start searching in the right subtree. At the next step, `28 > 27`, so now we can ignore the right subtree, and move to the left. Next, `25 < 27`, so once again we can ignore the left subtree. Finally, we find the `27` after moving right once more.
+
+    <img style="max-height: 400px" src="https://blog.penjee.com/wp-content/uploads/2015/11/binary-search-tree-sorted-array-animation.gif"/>
+
+- This process has an average time complexity of $O(log n)$. In the worst case scenario, let's say with a tree that had no right children and was just a straight line (basically a linked list), the time complexity would be $O(n)$.
+
+> Trivia to know: an inorder DFS traversal prioritizing left before right on a BST will handle the nodes in sorted order.
+
+## Extra - Nodes, pointers, mutability (in Rust)
 
 ### Rc module-level documentation
 [https://doc.rust-lang.org/std/rc/index.html](https://doc.rust-lang.org/std/rc/index.html)
