@@ -4,5 +4,10 @@
         "./p344_reverse_string/Cargo.toml",
         "./p344_reverse_string/Cargo.toml"
     ],
-    "rust-analyzer.showUnlinkedFileNotification": false
+    "rust-analyzer.showUnlinkedFileNotification": false,
+    "cSpell.words": [
+        "indegree",
+        "Indegree",
+        "outdegree"
+    ]
 }
