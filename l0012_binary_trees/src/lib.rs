@@ -95,6 +95,7 @@ impl Solution {
     pub fn dfs_rec(root: &Option<Rc<RefCell<TreeNode>>>) {
         if let Some(node) = root {
             let borrowed = node.borrow();
+            println!("{}", borrowed.val);
             Self::dfs_rec(&borrowed.left); // 1
             Self::dfs_rec(&borrowed.right); // 2
         }
@@ -108,7 +109,7 @@ impl Solution {
         while let Some(node) = stack.pop() {
             let node = node.borrow();
             println!("{}", node.val);
-            for i in 0..=1 {
+            for i in (0..=1).rev() {
                 if let Some(leaf) = &node[i] {
                     stack.push(Rc::clone(leaf));
                 }

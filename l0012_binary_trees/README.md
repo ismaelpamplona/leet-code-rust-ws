@@ -267,13 +267,24 @@ $O(1)$.
 
 ## Binary search trees
 
-- A binary search tree (BST) is a type of binary tree.
-- The **left** subtree of a node contains only nodes with keys **lesser** than the node’s key.
-- The **right** subtree of a node contains only nodes with keys **greater** than the node’s key.
-- The left and right subtree each must also be a binary search tree.
-- There must be **no duplicate** nodes.
+1. A binary search tree (BST) is a type of binary tree.
+2. The **left** subtree of a node contains only nodes with keys **lesser** than the node’s key.
+3. The **right** subtree of a node contains only nodes with keys **greater** than the node’s key.
+4. The left and right subtree each must also be a binary search tree.
+5. There must be **no duplicate** nodes.
+- Example of a valid BST:
 
     <img style="max-height: 400px" src="https://media.geeksforgeeks.org/wp-content/uploads/BSTSearch.png"/>
+
+- Example of a non valid BST:
+
+           (5)
+          /   \
+         4     6
+             /   \
+           (3)     7
+    
+    In this case `3 < 5`, so it breaks the third rule above.
 
 - With a binary search tree, operations like searching, adding, and removing can be done in **$O(log n)$ time on average**, where $n$ is the number of nodes in the tree, using something called binary search, which is the focus of an upcoming chapter.
 - Let's say you have the above tree, and you want to check if the value `27` existed. Starting at the root, we can see that `21 < 27`. This means we can ignore the left subtree, because every value in the subtree is also going to be less than `27`. We start searching in the right subtree. At the next step, `28 > 27`, so now we can ignore the right subtree, and move to the left. Next, `25 < 27`, so once again we can ignore the left subtree. Finally, we find the `27` after moving right once more.
