@@ -138,7 +138,81 @@ def build_graph(edges):
 
 ### Second input format: adjacency list
 
+  ```mermaid
+  graph LR
+      0 --> 1
+      1 --> 2
+      2 --> 0
+      2 --> 3
+  ```
 
+- The nodes will be numbered from `0` to `n - 1`. 
+- The input will be a 2D integer array, let's call it graph - `graph[i]` will be a list of all the outgoing edges from the $i^{th}$ node.
+- The graph in the image above can be represented by the adjacency list `graph = [[1], [2], [0, 3], []]`.
+- Notice that with this input, we can already access all the neighbors of any given node. We don't need to do any pre-processing! This makes an adjacency list the most convenient format. If we want all the neighbors of node 6, we just check `graph[6]`.
+
+### Third input format: adjacency matrix
+
+<table>
+<tr>
+<th>Graph</th>
+<th>Matrix</th>
+</tr>
+<tr>
+<td>
+
+```mermaid
+graph LR
+    0 --> 1
+    1 --> 2
+    2 --> 0
+    2 --> 3
+```
+</td>
+<td>
+<pre>
+   0  1  2  3
+0 [0, 1, 0, 0]
+1 [0, 0, 1, 0]
+2 [1, 0, 0, 1]
+3 [0, 0, 0, 0]
+</pre>
+
+
+</td>
+</tr>
+</table>
+
+- The nodes will be numbered from `0` to `n - 1`. 
+- The input will be a 2D matrix of size `n x n`: graph. 
+- If `graph[i][j] == 1`, that means there is an outgoing edge from node i to node j.
+
+#### Traversing options
+
+1. During the traversal, at any given node you can iterate over `graph[node]`, and if `graph[node][i] == 1`, then you know that node `i` is a neighbor. 
+2. Build a hash map and then iterate over the entire graph. If `graph[i][j] == 1`, then put `j` in the list associated with `graph[i]`. This way, when performing the traversal, you will not need to iterate n times at every node to find the neighbors. This is especially useful when nodes have only a few neighbors and n is large.
+
+> Both of these approaches will have a time complexity of $O(n²)$
+
+### Fourth input format: matrix
+
+- The input will be a 2D matrix and the problem will describe a story.
+- Each square will represent something, and the squares will be connected in some way. 
+- For example, "Each square of the matrix is a village. Villages trade with their neighboring villages, which are the villages directly above, to the left, to the right, or below them."
+- In this case, each square `(row, col)` of the matrix is a node, and the neighbors are `(row - 1, col)`, `(row, col - 1)`, `(row + 1, col)`, `(row, col + 1)` (if in bounds).
+
+## Code differences between graphs and trees
+
+| Trees                                                                           | Graphs                                                                           |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| has a root node to start traversal from                                         | does not always have an obvious "start" point                                    |
+| we are given objects for the nodes, and each node has a pointer to its children | we might need to convert the input into a hash map first                         |
+| we refer to node.left and node.right at each node                               | we will need to use a for loop to iterate over the neighbors of the current node |
+
+
+- Implementation of DFS for graphs is similar to implementation for trees. Doing it recursively follows the same format: check for the base case, recursively call on all neighbors, do some logic to calculate the answer, and return the answer. You can also do it iteratively using a stack.
+- In any undirected graph or a directed graph with cycles, implementing DFS the same way we did with binary trees will result in an infinite cycle. 
+- Like with trees, in most graph questions, we only need to (and want to) visit each node once. To prevent cycles and unnecessarily visiting a node more than once, we can use a set seen. Before we visit a node, we first check if the node is in seen. If it isn't, we add it to seen before visiting it. This allows us to only visit each node once in $O(1)$ time because adding and checking for existence in a set takes constant time.
 
 
 
