@@ -50,6 +50,16 @@ impl Solution {
   - $O(n + e)$
   - The space complexity isn't $O(n²)$ because `e` is not necessarily dominated. In the worst case scenario, $e = n²$, but `e` is still independent of `n`. In the time complexity, we always iterated over the entire matrix to build the graph, but in terms of space complexity, the hash map only grows if the edges actually exist.
 
+## Second approach - DFS - iterative
+
+- n = number of nodes
+- e = number of edges
+- time complexity: $O(n²)$
+- space complexity: $O(n + e)$
+
+  > same explanation as recursive
+
+
 
 
 
