@@ -118,4 +118,5 @@ members = [
     "p701_insert_into_a_binary_search_tree",
     "p270_closest_binary_search_tree_value",
     "l0013_graphs",
+    "p547_number_of_provinces",
 ]
