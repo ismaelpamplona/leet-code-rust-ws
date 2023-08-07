@@ -10,14 +10,14 @@ impl Solution {
 }
 ```
 
-## First approach - DFS - iterative
+## First approach - DFS - recursive
 
 - m = number of rows
 - n = number of columns
 - time complexity: $O(m X n)$
 - space complexity: $O(min(m, n))$
 
-## Second approach - DFS - recursive
+## Second approach - DFS - iterative
 
 - m = number of rows
 - n = number of columns
