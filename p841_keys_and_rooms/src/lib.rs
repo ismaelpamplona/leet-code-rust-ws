@@ -38,18 +38,18 @@ mod tests {
     fn case_01() {
         let rooms = vec![vec![1], vec![2], vec![3], vec![]];
         let result1 = Solution::can_visit_all_rooms_rec(rooms.clone());
-        // let result2 = Solution::can_visit_all_rooms_it(rooms.clone());
+        let result2 = Solution::can_visit_all_rooms_it(rooms.clone());
         assert_eq!(result1, true);
-        // assert_eq!(result2, true);
+        assert_eq!(result2, true);
     }
 
     #[test]
     fn case_02() {
         let rooms = vec![vec![1, 3], vec![3, 0, 1], vec![2], vec![0]];
         let result1 = Solution::can_visit_all_rooms_rec(rooms.clone());
-        // let result2 = Solution::can_visit_all_rooms_it(rooms.clone());
+        let result2 = Solution::can_visit_all_rooms_it(rooms.clone());
         assert_eq!(result1, false);
-        // assert_eq!(result2, false);
+        assert_eq!(result2, false);
     }
 
     #[test]
@@ -67,8 +67,8 @@ mod tests {
             vec![6],
         ];
         let result1 = Solution::can_visit_all_rooms_rec(rooms.clone());
-        // let result2 = Solution::can_visit_all_rooms_it(rooms.clone());
+        let result2 = Solution::can_visit_all_rooms_it(rooms.clone());
         assert_eq!(result1, false);
-        // assert_eq!(result2, false);
+        assert_eq!(result2, false);
     }
 }
