@@ -99,6 +99,15 @@ To determine a vertex’s outdegree in a directed graph, one must count the numb
 - Each element of the array will be in the form `[x, y]`, which indicates that there is an edge between `x` and `y`. 
 - The problem may have a story for these edges - using the cities example, the story would be something like "`[x, y]` means there is a highway connecting city `x` and city `y`".
 - Before starting the traversal, we can pre-process the input so that we can easily find all neighbors of any given node. Ideally, you want a data structure where you can give node as an argument and be returned a list of neighbors. **The easiest way to accomplish this is using a hash map.**
+- The following graph can be represented by an array of directed edges: `edges = [[0, 1], [1, 2], [2, 0], [2, 3]]`.
+```mermaid
+graph LR
+    0 --> 1
+    1 --> 2
+    2 --> 0
+    2 --> 3
+```
+
 
 #### Rust
 ```Rust
