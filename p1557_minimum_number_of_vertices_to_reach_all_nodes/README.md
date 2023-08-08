@@ -10,14 +10,7 @@ impl Solution {
 }
 ```
 
-## First approach - DFS - recursive
-
-- n = number of nodes
-- e = number of edges
-- time complexity: $O(n + e)$
-- space complexity: $O(n)$
-
-## Second approach - DFS - iterative
+## First approach - DFS - In-Degree Count
 
 - n = number of nodes
 - e = number of edges
