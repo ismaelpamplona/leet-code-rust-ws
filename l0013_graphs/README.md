@@ -162,13 +162,13 @@ def build_graph(edges):
 
 ### Third input format: adjacency matrix
 
-<table>
+<table style="width: 100%;">
 <tr>
 <th>Graph</th>
 <th>Matrix</th>
 </tr>
 <tr>
-<td>
+<td style="text-align: center;">
 
 ```mermaid
 graph LR
@@ -179,7 +179,7 @@ graph LR
 ```
 </td>
 <td>
-<pre>
+<pre style="text-align: center;">
    0  1  2  3
 0 [0, 1, 0, 0]
 1 [0, 0, 1, 0]
