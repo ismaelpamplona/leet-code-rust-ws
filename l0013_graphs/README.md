@@ -223,6 +223,80 @@ graph LR
 - In any undirected graph or a directed graph with cycles, implementing DFS the same way we did with binary trees will result in an infinite cycle. 
 - Like with trees, in most graph questions, we only need to (and want to) visit each node once. To prevent cycles and unnecessarily visiting a node more than once, we can use a set seen. Before we visit a node, we first check if the node is in seen. If it isn't, we add it to seen before visiting it. This allows us to only visit each node once in $O(1)$ time because adding and checking for existence in a set takes constant time.
 
+## Graphs: DFS vs BFS
+
+- Like with trees, in many graph problems, it doesn't really matter if you use DFS or BFS.
+- There are rarely scenarios where DFS performs better than BFS - people just choose DFS because it's faster/cleaner to implement, especially recursively.
+- There are some problems where using BFS is clearly better than using DFS. 
+  - In trees, this was the case when we were concerned with tree levels. 
+  - In graphs, it is mostly the case when you are **asked to find the shortest path**.
+- BFS would visit all nodes at a depth d before visiting any node at a depth d + 1. BFS visited the nodes according to their distance from the root.
+- **BFS on a graph always visits nodes according to their distance from the starting point.** This is the key idea behind BFS on graphs - every time you visit a node, you must have reached it in the minimum steps possible from wherever you started your BFS.
+
+### DFS
+#### Recursive
+```Rust
+fn dfs(node: usize, seen: &mut HashSet<usize>, graph: &HashMap<usize, Vec<usize>>) {
+    if let Some(vec) = graph.get(&node) {
+        for neighbor in vec {
+            if !seen.contains(neighbor) {
+                seen.insert(*neighbor);
+                Self::dfs(*neighbor, seen, graph);
+            }
+        }
+    }
+}
+```
+#### Iterative
+```Rust
+fn dfs_it(node: usize, seen: &mut HashSet<usize>, graph: &HashMap<usize, Vec<usize>>) {
+    let mut stack = Vec::from([node]);
+    while let Some(n) = stack.pop() {
+        if let Some(vec) = graph.get(&n) {
+            for neighbor in vec {
+                if !seen.contains(neighbor) {
+                    seen.insert(*neighbor);
+                    stack.push(*neighbor);
+                }
+            }
+        }
+    }
+}
+```
+
+### BFS
+
+- We implemented DFS primarily with recursion, which uses a stack under the hood. To implement BFS, we will use a **queue** (iteratively) instead.
+
+#### Iterative
+```Rust
+fn bfs(grid: Vec<Vec<i32>>) -> i32 {
+    if grid[0][0] == 1 {
+        return -1;
+    }
+    let mut seen: HashSet<(usize, usize)> = HashSet::from([(0, 0)]);
+    let mut q: VecDeque<(usize, usize, i32)> = VecDeque::from([(0, 0, 1)]);
+    let dir: Vec<(i32, i32)> = vec![
+        (0, 1), // to bottom
+        (1, 0), // to right
+        (1, 1), // to right and bottom
+    ];
+    while let Some((row, col, steps)) = q.pop_front() {
+        let n = grid.len();
+        if (row, col) == (n - 1, n - 1) {
+            return steps;
+        }
+        for (dx, dy) in &dir {
+            let (next_row, next_col) = ((row as i32 + dy) as usize, (col as i32 + dx) as usize);
+            if grid[row][col] == 0 && !seen.contains(&(next_row, next_col)) {
+                seen.insert((next_row, next_col));
+                q.push_back((next_row, next_col, steps + 1));
+            }
+        }
+    }
+    -1
+}
+```
 
 
 
