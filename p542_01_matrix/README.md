@@ -10,7 +10,7 @@ impl Solution {
 }
 ```
 
-## First approach - 
+## First approach - Breadth-First Search (BFS)
 - $m$: number of rows
 - $n$: number of columns
 - time complexity: $O(n * m)$
