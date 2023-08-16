@@ -18,7 +18,7 @@ impl Solution {
             for edge in edges {
                 graph
                     .entry(color)
-                    .or_insert(HashMap::new())
+                    .or_insert_with(HashMap::new)
                     .entry(edge[0])
                     .or_insert(vec![])
                     .push(edge[1]);
