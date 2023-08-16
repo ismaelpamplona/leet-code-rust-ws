@@ -11,8 +11,7 @@ impl Solution {
         let dir = vec![(0, 1), (1, 0), (0, -1), (-1, 0)];
         let mut q = VecDeque::from([(0, 0, 0, k)]);
         let mut seen = HashSet::from([(0, 0, k)]);
-        while !q.is_empty() {
-            let (row, col, steps, remain) = q.pop_front().unwrap();
+        while let Some((row, col, steps, remain)) = q.pop_front() {
             if row == m && col == n {
                 return steps;
             }
