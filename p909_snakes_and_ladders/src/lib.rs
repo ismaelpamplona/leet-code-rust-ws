@@ -5,14 +5,12 @@ impl Solution {
     pub fn snakes_and_ladders(board: Vec<Vec<i32>>) -> i32 {
         let n = board.len();
         let mut seq: Vec<i32> = vec![];
-        let mut toggle = true;
-        for row in board.iter().rev() {
-            if toggle {
-                seq.extend(row.iter());
+        for (index, row) in board.iter().rev().enumerate() {
+            if index % 2 == 0 {
+                seq.extend(row);
             } else {
                 seq.extend(row.iter().rev());
             }
-            toggle = !toggle;
         }
         let mut q = VecDeque::from([0]);
         let mut best = vec![-1; n * n];
