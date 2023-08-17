@@ -13,23 +13,20 @@ impl Solution {
             }
         }
         let mut q = VecDeque::from([0]);
-        let mut best = vec![-1; n * n];
-        best[0] = 0;
+        let mut steps = vec![-1; n * n];
+        steps[0] = 0;
         while let Some(i) = q.pop_front() {
             for j in i + 1..(i + 7).min(n * n) {
                 let mut ni = j;
-
                 if seq[ni] != -1 {
                     ni = (seq[ni] - 1) as usize;
                 }
-
                 if ni == (n * n) - 1 {
-                    return best[i] + 1;
+                    return steps[i] + 1;
                 }
-
-                if best[ni] == -1 {
+                if steps[ni] == -1 {
                     q.push_back(ni);
-                    best[ni] = best[i] + 1;
+                    steps[ni] = steps[i] + 1;
                 }
             }
         }

@@ -11,7 +11,7 @@ impl Solution {
 ```
 
 ## First approach - BFS (Breadth-First Search)
-- $n$: number of cols (or rows)
+- $n$: number of rows (matrix `n x n``)
 - time complexity: $O(n²)$
 - space complexity: $O(n²)$
 
