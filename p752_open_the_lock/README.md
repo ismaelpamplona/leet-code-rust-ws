@@ -10,9 +10,11 @@ impl Solution {
 }
 ```
 
-## First approach - 
-- $a$: number
+## First approach - BFS
+- $n$: slots
+- $10$: each slot has 10 options
+- $d$: size of `deadends``
 - time complexity: $O(10^n * n^2 + d)$
-- space complexity: $O(n²)$, `seen` set can grow to n²
+- space complexity: $O(10^n + d)$
 
 
