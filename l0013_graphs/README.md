@@ -298,5 +298,7 @@ fn bfs(grid: Vec<Vec<i32>>) -> i32 {
 }
 ```
 
+> With an efficient queue, BFS has the same time and space complexity as DFS.
+
 
 
