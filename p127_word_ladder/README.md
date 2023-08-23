@@ -13,7 +13,8 @@ impl Solution {
 ## First approach - BFS
 
 - $m$: length of each word
-- $n$: lenght of `word_list`
+- $n$: length of `word_list`
 - time complexity: $O(m² + n)$
+- space complexity: $O(m² + n)$
 
 
