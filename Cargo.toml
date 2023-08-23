@@ -141,4 +141,5 @@ members = [
     "p2101_detonate_the_maximum_bombs",
     "p127_word_ladder",
     "l0014_heaps",
+    "p1046_last_stone_weight",
 ]
