@@ -15,7 +15,7 @@ impl Solution {
 `n`: number of elements
   
 - time complexity: $O(n log n)$
-- time complexity: $O(n)$
+- space complexity: $O(n)$
 
 
 
