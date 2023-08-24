@@ -143,4 +143,5 @@ members = [
     "l0014_heaps",
     "p1046_last_stone_weight",
     "p2208_minimum_operations_to_halve_array_sum",
+    "p295_find_median_from_data_stream",
 ]
