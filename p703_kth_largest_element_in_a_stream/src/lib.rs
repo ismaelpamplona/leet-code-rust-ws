@@ -1,5 +1,6 @@
 use std::{cmp::Reverse, collections::BinaryHeap};
 
+#[allow(dead_code)]
 #[derive(Debug)]
 struct KthLargest {
     k: i32,
@@ -7,6 +8,7 @@ struct KthLargest {
 }
 
 impl KthLargest {
+    #[allow(dead_code)]
     fn new(k: i32, nums: Vec<i32>) -> Self {
         let mut heap = BinaryHeap::from(nums.iter().map(|&x| Reverse(x)).collect::<Vec<_>>());
         while heap.len() > k as usize {
@@ -14,10 +16,12 @@ impl KthLargest {
         }
         KthLargest { k, heap }
     }
-
+    #[allow(dead_code)]
     fn add(&mut self, val: i32) -> i32 {
         self.heap.push(Reverse(val));
-        self.heap.pop();
+        if self.heap.len() > self.k as usize {
+            self.heap.pop();
+        }
         self.heap.peek().unwrap().0
     }
 }
