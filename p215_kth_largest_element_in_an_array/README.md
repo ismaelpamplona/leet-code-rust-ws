@@ -10,13 +10,16 @@ impl Solution {
 }
 ```
 
-## First approach - Heap
+## First approach - Min Heap
 
-### time complexity:
-- find_median: $O(1)$
-- add_num: $O(log n)$, where `n` is the number of times `add_sum` has been called
+### time complexity: $O(n \cdot \log k)$
+- Operations on a `heap`` cost logarithmic time relative to its size. 
+- Because our `heap` is limited to a size of `k`, operations cost at most $O(\log k)$. 
+- We iterate over `nums``, performing one or two heap operations at each iteration.
+- We iterate `n` times, performing up to $\log k$ work at each iteration, giving us a time complexity of $O(n \cdot \log k)$.
 
 
-### space complexity: $O(n)$
+### space complexity: $O(k)$
+- The `heap` uses $O(k)$ space.
 
 
