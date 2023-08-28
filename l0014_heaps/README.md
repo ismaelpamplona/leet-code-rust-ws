@@ -39,7 +39,6 @@
 
 #### Rust
 ```rust
-use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
 // Declaration: Create a min heap using BinaryHeap
