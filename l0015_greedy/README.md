@@ -11,4 +11,3 @@
 - A good example is the [travelling salesman problem (TSP)](https://en.wikipedia.org/wiki/Travelling_salesman_problem). A greedy approach to TSP yields an answer that is usually only wrong by about 25%, with a time complexity of $O(n²)$. For an exact solution, we haven't found a classical algorithm faster than $O(2^n)$, and many people doubt such an algorithm exists.
 - "Greedy" isn't a data structure and it isn't any single algorithm either, but more of a way to approach a problem.
 - The concept of "greedy" is extremely general and the **main thing to practice is recognizing when it applies**. Greedy algorithms are usually very efficient, so if you are given a problem that can be solved greedily, it's important to recognize it.
-
