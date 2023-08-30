@@ -3,15 +3,13 @@ struct Solution;
 impl Solution {
     #[allow(dead_code)]
     fn binary_search(vec: Vec<i32>, target: i32) -> i32 {
-        let mut left = 0 as usize;
-        let mut right = vec.len() - 1;
+        let (mut left, mut right) = (0 as i32, vec.len() as i32 - 1);
         while left <= right {
             let mid = left + (right - left) / 2;
-            if vec[mid] == target {
+            if vec[mid as usize] == target {
                 println!("do something");
                 return mid as i32;
-            }
-            if vec[mid] > target {
+            } else if vec[mid as usize] > target {
                 right = mid - 1;
             } else {
                 left = mid + 1;

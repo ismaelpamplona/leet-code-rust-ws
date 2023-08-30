@@ -25,22 +25,36 @@
 #### Rust
 ```rust
 fn binary_search(vec: Vec<i32>, target: i32) -> i32 {
-  let mut left = 0 as usize;
-  let mut right = vec.len() - 1;
-  while left <= right {
+   let (mut left, mut right) = (0 as i32, vec.len() as i32 - 1);
+   while left <= right {
       let mid = left + (right - left) / 2;
-      if vec[mid] == target {
+      if vec[mid as usize] == target {
           println!("do something");
           return mid as i32;
-      }
-      if vec[mid] > target {
+      } else if vec[mid as usize] > target {
           right = mid - 1;
       } else {
           left = mid + 1;
       }
+   }
+   // target is not in arr, but left is at the insertion point
+   println!("not found");
+   -1
+}
+```
+
+```rust
+use std::cmp::Ordering::{Equal, Greater, Less};
+pub fn search_opt(nums: Vec<i32>, target: i32) -> i32 {
+  let (mut left, mut right) = (0, nums.len());
+  while left < right {
+      let mid = left + (right - left) / 2;
+      match nums[mid].cmp(&target) {
+          Equal => return mid as i32,
+          Less => left = mid + 1,
+          Greater => right = mid,
+      }
   }
-  // target is not in arr, but left is at the insertion point
-  println!("not found");
   -1
 }
 ```
