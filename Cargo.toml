@@ -163,4 +163,5 @@ members = [
     "p1196_how_many_apples_can_you_put_into_the_basket",
     "p1338_reduce_array_size_to_the_half",
     "l0016_binary_search",
+    "p704_binary_search",
 ]
