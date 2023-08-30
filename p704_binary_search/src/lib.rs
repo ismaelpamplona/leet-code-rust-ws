@@ -2,15 +2,12 @@ use std::cmp::Ordering::{Equal, Greater, Less};
 struct Solution;
 impl Solution {
     pub fn search(nums: Vec<i32>, target: i32) -> i32 {
-        let (mut left, mut right) = (0, nums.len());
+        let (mut left, mut right) = (0 as i32, nums.len() as i32 - 1);
         while left <= right {
             let mid = left + (right - left) / 2;
-            if nums[mid] == target {
+            if nums[mid as usize] == target {
                 return mid as i32;
-            } else if nums[mid] > target {
-                if mid == 0 {
-                    return -1;
-                }
+            } else if nums[mid as usize] > target {
                 right = mid - 1;
             } else {
                 left = mid + 1;
