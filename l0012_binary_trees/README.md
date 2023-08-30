@@ -286,12 +286,12 @@ $O(1)$.
     
     In this case `3 < 5`, so it breaks the third rule above.
 
-- With a binary search tree, operations like searching, adding, and removing can be done in **$O(log n)$ time on average**, where $n$ is the number of nodes in the tree, using something called binary search, which is the focus of an upcoming chapter.
+- With a binary search tree, operations like searching, adding, and removing can be done in **$O(\log n)$ time on average**, where $n$ is the number of nodes in the tree, using something called binary search, which is the focus of an upcoming chapter.
 - Let's say you have the above tree, and you want to check if the value `27` existed. Starting at the root, we can see that `21 < 27`. This means we can ignore the left subtree, because every value in the subtree is also going to be less than `27`. We start searching in the right subtree. At the next step, `28 > 27`, so now we can ignore the right subtree, and move to the left. Next, `25 < 27`, so once again we can ignore the left subtree. Finally, we find the `27` after moving right once more.
 
     <img style="max-height: 400px" src="https://blog.penjee.com/wp-content/uploads/2015/11/binary-search-tree-sorted-array-animation.gif"/>
 
-- This process has an average time complexity of $O(log n)$. In the worst case scenario, let's say with a tree that had no right children and was just a straight line (basically a linked list), the time complexity would be $O(n)$.
+- This process has an average time complexity of $O(\log n)$. In the worst case scenario, let's say with a tree that had no right children and was just a straight line (basically a linked list), the time complexity would be $O(n)$.
 
 > Trivia to know: an inorder DFS traversal prioritizing left before right on a BST will handle the nodes in sorted order.
 

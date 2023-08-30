@@ -3,8 +3,8 @@
 - A heap is a data structure that is an implementation of the [priority queue](https://en.wikipedia.org/wiki/Priority_queue).
 
 - A heap is a container that stores elements, and supports the following operations:
-    - Add an element in $O(log n)$
-    - Remove the minimum element in $O(log n)$
+    - Add an element in $O(\log n)$
+    - Remove the minimum element in $O(\log n)$
     - Find the minimum element in $O(1)$
 
 > A heap can also find the max elements instead of the min elements. If a heap is configured to find/remove the min element, it's called a min heap. If it's configured to find/remove the max element, it's called a max heap.
@@ -33,7 +33,7 @@
 
         <img src="https://media.geeksforgeeks.org/wp-content/uploads/CompleteBinaryTree.png" style="max-height: 200px"/>
 
-- In many problems, using a heap can improve an algorithm's time complexity from $O(n⋅log n)$, which is a massive improvement (for n = 1,000,000, this is 50,000 times faster). A heap is a great option whenever you need to find the maximum or minimum of something repeatedly.
+- In many problems, using a heap can improve an algorithm's time complexity from $O(n \cdot \log n)$, which is a massive improvement (for n = 1,000,000, this is 50,000 times faster). A heap is a great option whenever you need to find the maximum or minimum of something repeatedly.
 
 ### Interface guide
 

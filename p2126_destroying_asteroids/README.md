@@ -14,14 +14,14 @@ impl Solution {
 
 `n`: number of elements
  
-- time complexity: $O(n \cdot log n)$
+- time complexity: $O(n \cdot \log n)$
 - space complexity: $O(n)$
 
 ## First approach - Greedy with sort
 
 `n`: number of elements
  
-- time complexity: $O(n \cdot log n)$
+- time complexity: $O(n \cdot \log n)$
 - space complexity: $O(n)$
 
 

@@ -33,14 +33,14 @@ impl Solution {
 
 - n = number of nodes
 - h = tree high
-- time complexity: $O(h) =$ $O(log n)$ (avg case) $= O(n)$ (worst case)
-- space complexity: $O(h) =$ $O(log n)$ (avg case) $= O(n)$ (worst case)
+- time complexity: $O(h) =$ $O(\log n)$ (avg case) $= O(n)$ (worst case)
+- space complexity: $O(h) =$ $O(\log n)$ (avg case) $= O(n)$ (worst case)
 
 ## Second approach - Depth-first search (DFS) - Binary search tree - iterative
 
 - n = number of nodes
 - h = tree high
-- time complexity: $O(h) =$ $O(log n)$ (avg case) $= O(n)$ (worst case)
+- time complexity: $O(h) =$ $O(\log n)$ (avg case) $= O(n)$ (worst case)
 - space complexity: $O(1)$
 
 

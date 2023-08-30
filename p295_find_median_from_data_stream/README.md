@@ -39,7 +39,7 @@ impl MedianFinder {
 
 ### time complexity:
 - find_median: $O(1)$
-- add_num: $O(log n)$, where `n` is the number of times `add_sum` has been called
+- add_num: $O(\log n)$, where `n` is the number of times `add_sum` has been called
 
 
 ### space complexity: $O(n)$

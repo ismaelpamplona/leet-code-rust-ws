@@ -15,9 +15,9 @@ impl Solution {
 `n`: number of elements
 `k`: number of operations
 - 
-### time complexity: $O(n + k * log n)$
+### time complexity: $O(n + k \cdot \log n)$
 - Vector `piles`` can be converted to a heap in linear time - $O(n)$.
-- After converting the input to a heap, we perform $k$ heap operations. Each heap operation costs $(log⁡ n)$, which gives us a time complexity of $O(k * log⁡ n)$. So, $O(n + k log n)$.
+- After converting the input to a heap, we perform $k$ heap operations. Each heap operation costs $(\log⁡ n)$, which gives us a time complexity of $O(k \cdot \log⁡ n)$. So, $O(n + k \log n)$.
 
 ### space complexity: $O(n)$
 - The heap's length is equal to $n$, which is all the extra space we use.

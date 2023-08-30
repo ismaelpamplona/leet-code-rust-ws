@@ -14,7 +14,7 @@ impl Solution {
 
 `n`: number of elements
  
-- time complexity: $O(n log k)$ if $k < n$ and $O(n)$ in the particular case of $n = k$. That ensures time complexity to be better $O(n log n)$
+- time complexity: $O(n \cdot \log k)$ if $k < n$ and $O(n)$ in the particular case of $n = k$. That ensures time complexity to be better $O(n \cdot \log n)$
 - space complexity: $O(n + k)$, to store the hash map with not more
 $n$ elements and a heap with $k$ elements.
 

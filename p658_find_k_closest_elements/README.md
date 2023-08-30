@@ -13,7 +13,7 @@ impl Solution {
 ## First approach - Heap
 
 - n: `arr.len()`
-- time complexity: $O((n + k) * log k)$ 
+- time complexity: $O((n + k) \cdot \log k)$ 
 - space complexity: $O(n)$
 
 
