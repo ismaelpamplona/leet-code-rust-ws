@@ -164,4 +164,5 @@ members = [
     "p1338_reduce_array_size_to_the_half",
     "l0016_binary_search",
     "p704_binary_search",
+    "p74_search_a_2_d_matrix",
 ]
