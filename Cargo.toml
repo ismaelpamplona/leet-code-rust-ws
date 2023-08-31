@@ -166,4 +166,5 @@ members = [
     "p704_binary_search",
     "p74_search_a_2_d_matrix",
     "p2300_successful_pairs_of_spells_and_potions",
+    "p35_search_insert_position",
 ]
