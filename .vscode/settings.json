@@ -6,8 +6,10 @@
     ],
     "rust-analyzer.showUnlinkedFileNotification": false,
     "cSpell.words": [
+        "heapsort",
         "indegree",
         "Indegree",
+        "introsort",
         "outdegree"
     ]
 }
