@@ -34,7 +34,7 @@ Therefore, the overall time complexity is O(m⋅n+n⋅log⁡n)O(m\cdot n + n\cdo
 ### time complexity: $O((m + n) \cdot \log n)$
 - Sorting `nums`: $O(n \cdot log n)$.
 - Building `presum`: $O(n)$.
-- For each query, binary search over the prefix sum array to find its insertion index, it takes $O(\log n)$. There are mmm queries so the time required is $O(m \cdot \log n)$.
+- For each query, binary search over the prefix sum array to find its insertion index, it takes $O(\log n)$. There are $m$ queries so the time required is $O(m \cdot \log n)$.
 - Therefore, the overall time complexity is $O(n \cdot \log n + m \cdot \log n) = O((m + n) \cdot n)$.
 
 ### space complexity: $O(\log n)$
