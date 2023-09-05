@@ -16,17 +16,11 @@ impl Solution {
 }
 ```
   
-## First approach - Binary Search Using BFS
+## First approach - Binary Search
 
-- `m` = `heights.len()`
-- `n` = `heights[0].len()`
-- `k` = maximum number on `heights` vector
+- `n` = `sweetness.len()`
+- `k` = maximum possible answer
   
-### time complexity: $O(m \cdot n \cdot \log k)$
-- BFS: $O(m \cdot n)$
-- Binary Search: $O(\log k)$
-
-### space complexity: $O(m \cdot n)$
-
-- To perform the DFS, we are using $O(m \cdot n)$ space for the stack and seen.
+- time complexity: $O(n \cdot \log k)$
+- space complexity: $O(1)$
 
