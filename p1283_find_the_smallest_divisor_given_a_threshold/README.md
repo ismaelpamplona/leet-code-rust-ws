@@ -18,7 +18,7 @@ impl Solution {
   
 ## First approach - Binary Search
 
-- `n` = `sweetness.len()`
+- `n` = `nums.len()`
 - `k` = maximum possible answer
   
 - time complexity: $O(n \cdot \log k)$
