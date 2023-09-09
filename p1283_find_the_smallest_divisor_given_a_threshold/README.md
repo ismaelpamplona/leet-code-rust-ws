@@ -19,8 +19,8 @@ impl Solution {
 ## First approach - Binary Search
 
 - `n` = `nums.len()`
-- `k` = maximum possible answer
+- `m` = maximum element of the `nums` array
   
-- time complexity: $O(n \cdot \log k)$
+- time complexity: $O(n \cdot \log m)$
 - space complexity: $O(1)$
 
