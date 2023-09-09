@@ -13,7 +13,7 @@ impl Solution {
         let mut left = 0;
         let mut right = *nums.iter().max().unwrap();
         while left <= right {
-            let mut mid = (left + right) / 2;
+            let mid = (left + right) / 2;
             if check(&nums, mid as f64, threshold as f64) {
                 right = mid - 1;
             } else {
