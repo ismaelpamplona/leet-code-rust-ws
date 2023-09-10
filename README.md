@@ -26,7 +26,7 @@ members = [
 $ cargo new <lib_name> --lib 
 ```
 
-## How do test your code?
+## How to test your code?
 
 ```console
 $ cargo test -p <lib_name> -- --nocapture
