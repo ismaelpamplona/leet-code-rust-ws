@@ -175,4 +175,5 @@ members = [
     "p1231_divide_chocolate",
     "p410_split_array_largest_sum",
     "l0017_backtracking",
+    "p46_permutations",
 ]
