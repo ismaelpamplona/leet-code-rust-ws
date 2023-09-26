@@ -177,4 +177,5 @@ members = [
     "l0017_backtracking",
     "p46_permutations",
     "p78_subsets",
+    "p77_combinations",
 ]
