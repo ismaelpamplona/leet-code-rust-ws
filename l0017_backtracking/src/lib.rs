@@ -1,10 +1,9 @@
 struct Solution;
 impl Solution {
     fn backtrack(start: i32, cur: &mut Vec<i32>, n: i32, k: i32, results: &mut Vec<Vec<i32>>) {
-        println!(" --> ({}, {:?}, {:?}", start, cur, results);
         // Base case: if the combination is done
         if cur.len() == k as usize {
-            results.push(cur.clone());
+            results.push(cur.to_vec());
             return;
         }
 
@@ -34,18 +33,17 @@ mod tests {
 
     #[test]
     fn case_01() {
-        // let n = 4;
-        // let k = 2;
-        // let result = Solution::combine(n, k);
-        // let expected = vec![
-        //     vec![1, 2],
-        //     vec![1, 3],
-        //     vec![1, 4],
-        //     vec![2, 3],
-        //     vec![2, 4],
-        //     vec![3, 4],
-        // ];
-        println!("{:?}", Solution::combine(4, 2));
-        // assert_eq!(result, expected);
+        let n = 4;
+        let k = 2;
+        let result = Solution::combine(n, k);
+        let expected = vec![
+            vec![1, 2],
+            vec![1, 3],
+            vec![1, 4],
+            vec![2, 3],
+            vec![2, 4],
+            vec![3, 4],
+        ];
+        assert_eq!(result, expected);
     }
 }
