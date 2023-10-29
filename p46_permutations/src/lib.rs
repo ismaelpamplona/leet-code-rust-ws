@@ -1,21 +1,21 @@
 struct Solution;
 impl Solution {
-    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        fn backtrack(cur: &mut Vec<i32>, nums: &[i32], ans: &mut Vec<Vec<i32>>) {
-            if cur.len() == nums.len() {
-                ans.push(cur.to_vec());
-                return;
-            }
-            for n in nums {
-                if !cur.contains(n) {
-                    cur.push(*n);
-                    backtrack(cur, nums, ans);
-                    cur.pop();
-                }
+    fn backtrack(cur: &mut Vec<i32>, nums: &[i32], ans: &mut Vec<Vec<i32>>) {
+        if cur.len() == nums.len() {
+            ans.push(cur.to_vec());
+            return;
+        }
+        for n in nums {
+            if !cur.contains(n) {
+                cur.push(*n);
+                Self::backtrack(cur, nums, ans);
+                cur.pop();
             }
         }
+    }
+    pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
         let mut ans: Vec<Vec<i32>> = vec![];
-        backtrack(&mut vec![], &nums, &mut ans);
+        Self::backtrack(&mut vec![], &nums, &mut ans);
         ans
     }
 }
