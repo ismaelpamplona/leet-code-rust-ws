@@ -1,21 +1,22 @@
 struct Solution;
 impl Solution {
-    pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
-        fn backtrack(cur: &mut Vec<i32>, nums: &[i32], ans: &mut Vec<Vec<i32>>, i: usize) {
-            if i > nums.len() {
-                return;
-            }
-            ans.push(cur.to_vec());
-            for j in i..nums.len() {
-                cur.push(nums[j]);
-                backtrack(cur, nums, ans, j + 1);
-                cur.pop();
-            }
+    fn backtrack(cur: &mut Vec<i32>, nums: &Vec<i32>, result: &mut Vec<Vec<i32>>, i: usize) {
+        if cur.len() > nums.len() {
+            return;
         }
-        let mut ans: Vec<Vec<i32>> = vec![];
-        backtrack(&mut vec![], &nums, &mut ans, 0);
-        ans.sort_by_key(|v| v.len());
-        ans
+        result.push(cur.to_vec());
+
+        for j in i..nums.len() {
+            cur.push(nums[j]);
+            Self::backtrack(cur, nums, result, j + 1);
+            cur.pop();
+        }
+    }
+    pub fn subsets(nums: Vec<i32>) -> Vec<Vec<i32>> {
+        let mut result = vec![];
+        Self::backtrack(&mut vec![], &nums, &mut result, 0);
+        result.sort_by_key(|v| v.len());
+        result
     }
 }
 #[cfg(test)]
