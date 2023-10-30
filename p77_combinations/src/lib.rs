@@ -1,21 +1,20 @@
 struct Solution;
 impl Solution {
-    pub fn combine(n: i32, k: i32) -> Vec<Vec<i32>> {
-        fn backtrack(cur: &mut Vec<i32>, n: i32, k: usize, ans: &mut Vec<Vec<i32>>, i: i32) {
-            if k == cur.len() {
-                ans.push(cur.to_vec());
-                return;
-            }
-            for num in i..=n {
-                cur.push(num);
-                backtrack(cur, n, k, ans, num + 1);
-                cur.pop();
-            }
+    fn backtrack(cur: &mut Vec<i32>, result: &mut Vec<Vec<i32>>, n: i32, k: i32, i: i32) {
+        if cur.len() == k as usize {
+            result.push(cur.to_vec());
+            return;
         }
-        let mut ans: Vec<Vec<i32>> = vec![];
-        backtrack(&mut vec![], n, k as usize, &mut ans, 1);
-        ans.sort_by_key(|v| v.len());
-        ans
+        for num in i..=n {
+            cur.push(num);
+            Self::backtrack(cur, result, n, k, num + 1);
+            cur.pop();
+        }
+    }
+    pub fn combine(n: i32, k: i32) -> Vec<Vec<i32>> {
+        let mut result = vec![];
+        Self::backtrack(&mut vec![], &mut result, n, k, 1);
+        result
     }
 }
 
