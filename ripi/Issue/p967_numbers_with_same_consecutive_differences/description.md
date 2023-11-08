@@ -1,0 +1,1 @@
+# p967_numbers_with_same_consecutive_differences (Issue)
