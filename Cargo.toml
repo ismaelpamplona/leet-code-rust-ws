@@ -184,4 +184,5 @@ members = [
     "p52_n_queens_ii",
     "p79_word_search",
     "p22_generate_parentheses",
+    "p967_numbers_with_same_consecutive_differences",
 ]
