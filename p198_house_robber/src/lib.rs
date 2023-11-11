@@ -6,12 +6,12 @@ impl Solution {
             return 0;
         }
 
-        let n = nums.len();
+        let n = nums.len() - 1;
 
         let mut rob_next_plus_one = 0;
-        let mut rob_next = nums[n - 1];
+        let mut rob_next = nums[n];
 
-        for i in (0..n - 1).rev() {
+        for i in (0..n).rev() {
             let current = max(rob_next, rob_next_plus_one + nums[i]);
             rob_next_plus_one = rob_next;
             rob_next = current;
