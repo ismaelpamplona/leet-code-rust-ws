@@ -187,4 +187,5 @@ members = [
     "p967_numbers_with_same_consecutive_differences",
     "p216_combination_sum_iii",
     "l0018_dynamic_programming",
+    "p198_house_robber",
 ]
