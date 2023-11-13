@@ -188,4 +188,5 @@ members = [
     "p216_combination_sum_iii",
     "l0018_dynamic_programming",
     "p198_house_robber",
+    "p300_longest_increasing_subsequence",
 ]
