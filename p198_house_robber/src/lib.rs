@@ -1,7 +1,7 @@
-use std::cmp::max;
+use std::{cmp::max, collections::HashMap};
 struct Solution;
 impl Solution {
-    pub fn rob(nums: Vec<i32>) -> i32 {
+    pub fn rob_bup(nums: Vec<i32>) -> i32 {
         if nums.is_empty() {
             return 0;
         }
@@ -19,6 +19,26 @@ impl Solution {
 
         rob_next
     }
+    fn dp(i: usize, nums: &[i32], cache: &mut HashMap<usize, i32>) -> i32 {
+        if let Some(&cached) = cache.get(&i) {
+            return cached;
+        }
+
+        let result = if i == 0 {
+            nums[0]
+        } else if i == 1 {
+            nums[0].max(nums[1])
+        } else {
+            Self::dp(i - 1, nums, cache).max(Self::dp(i - 2, nums, cache) + nums[i])
+        };
+
+        cache.insert(i, result);
+        result
+    }
+    pub fn rob_tdown(nums: Vec<i32>) -> i32 {
+        let mut cache = HashMap::new();
+        Self::dp(nums.len() - 1, &nums, &mut cache)
+    }
 }
 
 #[cfg(test)]
@@ -28,14 +48,18 @@ mod tests {
     #[test]
     fn case_01() {
         let nums = vec![1, 2, 3, 1];
-        let result = Solution::rob(nums);
-        assert_eq!(result, 4);
+        let result1 = Solution::rob_bup(nums.clone());
+        let result2 = Solution::rob_tdown(nums);
+        assert_eq!(result1, 4);
+        assert_eq!(result2, 4);
     }
 
     #[test]
     fn case_02() {
         let nums = vec![2, 7, 9, 3, 1];
-        let result = Solution::rob(nums);
-        assert_eq!(result, 12);
+        let result1 = Solution::rob_bup(nums.clone());
+        let result2 = Solution::rob_tdown(nums);
+        assert_eq!(result1, 12);
+        assert_eq!(result2, 12);
     }
 }
