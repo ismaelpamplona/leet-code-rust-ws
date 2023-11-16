@@ -189,4 +189,5 @@ members = [
     "l0018_dynamic_programming",
     "p198_house_robber",
     "p300_longest_increasing_subsequence",
+    "p2140_solving_questions_with_brainpower",
 ]
