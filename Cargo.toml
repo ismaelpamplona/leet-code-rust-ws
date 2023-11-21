@@ -190,4 +190,5 @@ members = [
     "p198_house_robber",
     "p300_longest_increasing_subsequence",
     "p2140_solving_questions_with_brainpower",
+    "p70_climbing_stairs",
 ]
