@@ -192,4 +192,5 @@ members = [
     "p2140_solving_questions_with_brainpower",
     "p70_climbing_stairs",
     "p746_min_cost_climbing_stairs",
+    "p322_coin_change"
 ]
