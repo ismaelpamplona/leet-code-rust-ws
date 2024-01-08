@@ -193,5 +193,6 @@ members = [
     "p70_climbing_stairs",
     "p746_min_cost_climbing_stairs",
     "p322_coin_change",
-    "p1143_longest_common_subsequence"
+    "p1143_longest_common_subsequence",
+    "p242_valid_anagram",
 ]
