@@ -13,29 +13,18 @@ impl ListNode {
 struct Solution;
 impl Solution {
     pub fn delete_middle(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        if head.is_none() || head.as_ref().unwrap().next.is_none() {
-            return None;
+        let mut dummy = head;
+        let mut fast = &(dummy.clone());
+        let mut slow = &mut dummy;
+
+        while fast.is_some() && fast.as_ref().unwrap().next.is_some() {
+            slow = &mut slow.as_mut()?.next;
+            fast = &fast.as_ref()?.next.as_ref()?.next;
         }
 
-        let mut dummy = Some(Box::new(ListNode {
-            val: -1,
-            next: head,
-        }));
-        let mut slow = head.as_ref().unwrap().as_ref();
-        let mut prev = head.as_ref().unwrap().as_ref();
-        let mut fast = head.as_ref().unwrap().as_ref();
+        *slow = (*slow).as_mut()?.next.take();
 
-        while fast.next.is_some() {
-            prev = slow;
-            slow = slow.next.as_ref().unwrap().as_ref();
-            fast = fast.next.as_ref().unwrap().next.as_ref().unwrap().as_ref();
-        }
-
-        let node = slow.next.take();
-        prev.next = node;
-
-        dummy.unwrap().next
-        &
+        dummy
     }
 }
 
@@ -51,6 +40,30 @@ mod tests {
         let vec1 = from_list_to_vec(head1);
         let vec2 = from_list_to_vec(head2);
         assert_eq!(vec1, vec2);
+    }
+
+    #[test]
+    fn case_01() {
+        let head = from_vec_to_list_it(vec![1, 3, 4, 7, 1, 2, 6]);
+        let output = vec![1, 3, 4, 1, 2, 6];
+        let result = from_list_to_vec(Solution::delete_middle(head.clone()));
+        assert_eq!(result, output);
+    }
+
+    #[test]
+    fn case_02() {
+        let head = from_vec_to_list_it(vec![1, 2, 3, 4]);
+        let output = vec![1, 2, 4];
+        let result = from_list_to_vec(Solution::delete_middle(head.clone()));
+        assert_eq!(result, output);
+    }
+
+    #[test]
+    fn case_03() {
+        let head = from_vec_to_list_it(vec![2, 1]);
+        let output = vec![2];
+        let result = from_list_to_vec(Solution::delete_middle(head.clone()));
+        assert_eq!(result, output);
     }
 }
 
