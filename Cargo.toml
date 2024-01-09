@@ -197,4 +197,6 @@ members = [
     "p242_valid_anagram",
     "p347_top_k_frequent_elements_r1",
     "p238_product_of_array_except_self",
+    "p36_valid_sudoku",
+    
 ]
