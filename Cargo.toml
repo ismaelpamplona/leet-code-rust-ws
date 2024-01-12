@@ -199,5 +199,6 @@ members = [
     "p238_product_of_array_except_self",
     "p36_valid_sudoku",
     "p271_encode_and_decode_strings",
+    "p128_longest_consecutive_sequence",
     
 ]
