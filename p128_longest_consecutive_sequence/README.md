@@ -16,7 +16,7 @@ impl Solution {
 
 ### Time Complexity: $O(n)$
 
-Despite the nested loops, the algorithm runs in linear time. The inner `while` loop is only triggered for the start of a new sequence, limiting its total iterations to $n$. Thus, the complexity is $O(n + n) = O(n)$.
+Despite the while nested loops, the algorithm runs in linear time. The inner `while` loop is only triggered for the start of a new sequence, limiting its total iterations to $n$. Thus, the complexity is $O(n + n) = O(n)$.
 
 ### Space Complexity: $O(n)$
 
