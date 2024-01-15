@@ -201,6 +201,6 @@ members = [
     "p271_encode_and_decode_strings",
     "p128_longest_consecutive_sequence",
     "p125_valid_palindrome",
-    "p167_two_sum_ii_input_array_is_sorted"
-    
+    "p167_two_sum_ii_input_array_is_sorted",
+    "p15_3_sum",    
 ]
