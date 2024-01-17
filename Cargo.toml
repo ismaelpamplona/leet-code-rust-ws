@@ -204,4 +204,5 @@ members = [
     "p167_two_sum_ii_input_array_is_sorted",
     "p15_3_sum",  
     "p11_container_with_most_water",
+    "p42_trapping_rain_water",
 ]
