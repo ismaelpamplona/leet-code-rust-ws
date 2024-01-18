@@ -25,7 +25,27 @@ impl Solution {
     }
 
     pub fn trap_b(height: Vec<i32>) -> i32 {
-        todo!()
+        let n = height.len() - 1;
+        if n <= 0 {
+            return 0;
+        }
+        let mut l = 0;
+        let mut r = n;
+        let mut max_left = height[l];
+        let mut max_right = height[r];
+        let mut max_vol = 0;
+        while l < r {
+            if max_left < max_right {
+                l += 1;
+                max_left = max_left.max(height[l]);
+                max_vol += max_left - height[l];
+            } else {
+                r -= 1;
+                max_right = max_right.max(height[r]);
+                max_vol += max_right - height[r];
+            }
+        }
+        max_vol
     }
 }
 
